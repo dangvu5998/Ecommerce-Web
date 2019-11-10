@@ -34,11 +34,11 @@
 				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="<c:url value="/index1" />">ShopIeasy</a>
+			<a class="navbar-brand" href="<c:url value="/" />">ShopIeasy</a>
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
-				<li><a href=" <c:url value="/index1" />">Home</a></li>
+				<li><a href=" <c:url value="/" />">Home</a></li>
 				<li><a href=" <c:url value="/getAllProducts" />">Product
 						List</a></li>
 				<li><a href=" <c:url value="/aboutus" />">About Us</a></li>
@@ -57,7 +57,7 @@
 			<ul class="nav navbar-nav navbar-right">
 
 				<c:if test="${!empty pageContext.request.userPrincipal.name}">
-					<li><a href="<c:url value="/index1" />"><span
+					<li><a href="<c:url value="/" />"><span
 							class="glyphicon glyphicon-shopping-user"></span>Welcome..${pageContext.request.userPrincipal.name}</a></li>
 
 					<security:authorize access="hasRole('ROLE_USER')">

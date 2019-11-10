@@ -82,7 +82,7 @@ body {
 							</div>
 							<button type="submit" class="btn">Send message</button>
 							<button style="float: right;" type="button" class="btn"
-								onclick="window.location.href='<c:url value="/index1" />'">Back
+								onclick="window.location.href='<c:url value="/" />'">Back
 								to Home</button>
 						</form:form>
 					</div>

@@ -20,7 +20,7 @@
 <body>
 	<footer class="footer-distributed">
 	<div class="footer-right">
-		<a href="<c:url value="/index1"/>"><span
+		<a href="<c:url value="/"/>"><span
 			class="glyphicon glyphicon-home"></span></a>
 		<security:authorize access="hasRole('ROLE_USER')">
 			<a href="<spring:url value="/cart/getCartById" />"><span class="glyphicon glyphicon-shopping-cart"></a>
@@ -32,7 +32,7 @@
 	<div class="footer-left">
 
 		<p class="footer-links">
-			<a href="<c:url value="/index1"/>">Home</a> � <a
+			<a href="<c:url value="/"/>">Home</a> � <a
 				href="<c:url value="/aboutus"/>">About Us</a> � <a href="<c:url value="/getAllProducts" />">Product
 				List</a> � <a href="<c:url value="/contactus"/>">Contact Us</a>
 		</p>

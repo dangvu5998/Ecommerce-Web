@@ -1,5 +1,6 @@
 package com.controller;
 
+import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +15,30 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.model.Queries;
 import com.service.QueriesService;
+import com.model.Product;
+import com.service.ProductService;
 
 @Controller
 public class HomeController {
 
-	@RequestMapping({ "/index", "/index1" })
-	public String sayIndex() {
-		return "index1";
+	@Autowired
+	private ProductService productService;
+
+	// Getters and Setters
+
+	public ProductService getProductService() {
+		return productService;
+	}
+
+	public void setProductService(ProductService productService) {
+		this.productService = productService;
+	}
+
+	@RequestMapping("/test")
+	public ModelAndView home() {
+		System.out.println("ok");
+		List<Product> products = productService.getAllProducts();
+		return new ModelAndView("index", "products", products);
 	}
 
 	@RequestMapping("/hello")
