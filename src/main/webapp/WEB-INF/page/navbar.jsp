@@ -7,84 +7,186 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="icon" type="image/x-icon" href="<c:url value="/resource/images/favicon1.png"/>" />
-<link rel="stylesheet"
-	href="<c:url value="/resource/bootstrap/css/bootstrap.min.css"/>">
-<script src="<c:url value="/resource/js/jquery.js"/>"></script>
-<script src="<c:url value="/resource/bootstrap/js/bootstrap.min.js"/>"></script>
-<link rel="stylesheet" type="text/css"
-	href="<c:url value="/resource/css/overall.css"/>">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="resource/css/bootstrap.min.css"/>
+
+	<!-- Slick -->
+	<link type="text/css" rel="stylesheet" href="resource/css/slick.css"/>
+	<link type="text/css" rel="stylesheet" href="resource/css/slick-theme.css"/>
+
+	<!-- nouislider -->
+	<link type="text/css" rel="stylesheet" href="resource/css/nouislider.min.css"/>
+
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="resource/css/font-awesome.min.css">
+
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="resource/css/style.css"/>
 
 </head>
 <body>
-
-	<nav class="navbar navbar-inverse">
-	<div class="container-fluid">
-
-		<div class="nav navbar">
-			<img class="navbar-brand"
-				src="<c:url value="/resource/images/shopieasy-logo.png"/>"
-				href="<c:url value="/index"/>" width="200px" height="100px"
-				alt="logo-image"></img>
+	<!-- HEADER -->
+	<header>
+		<!-- TOP HEADER -->
+		<div id="top-header">
+			<div class="container">
+				<ul class="header-links pull-left">
+					<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
+					<li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
+					<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
+				</ul>
+				<ul class="header-links pull-right">
+					<li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
+					<li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
+				</ul>
+			</div>
 		</div>
+		<!-- /TOP HEADER -->
 
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse"
-				data-target="#myNavbar">
-				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="<c:url value="/" />">ShopIeasy</a>
+		<!-- MAIN HEADER -->
+		<div id="header">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<!-- LOGO -->
+					<div class="col-md-3">
+						<div class="header-logo">
+							<a href="/" class="logo">
+								<img src="resource/images/logo.png" alt="">
+							</a>
+						</div>
+					</div>
+					<!-- /LOGO -->
+
+					<!-- SEARCH BAR -->
+					<div class="col-md-6">
+						<div class="header-search">
+							<form>
+								<select class="input-select">
+									<option value="All">All Categories</option>
+									<option value="Laptop">Laptop</option>
+									<option value="Smartphone">Smartphone</option>
+									<option value="Tablet">Tablet</option>
+									<option value="Accessory">Accessory</option>
+								</select>
+								<input class="input" placeholder="Search here">
+								<button class="search-btn">Search</button>
+							</form>
+						</div>
+					</div>
+					<!-- /SEARCH BAR -->
+
+					<!-- ACCOUNT -->
+					<div class="col-md-3 clearfix">
+						<div class="header-ctn">
+							<!-- Wishlist -->
+							<div>
+								<a href="#">
+									<i class="fa fa-heart-o"></i>
+									<span>Your Wishlist</span>
+									<div class="qty">2</div>
+								</a>
+							</div>
+							<!-- /Wishlist -->
+
+							<!-- Cart -->
+							<div class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+									<i class="fa fa-shopping-cart"></i>
+									<span>Your Cart</span>
+									<div class="qty">3</div>
+								</a>
+								<div class="cart-dropdown">
+									<div class="cart-list">
+										<div class="product-widget">
+											<div class="product-img">
+												<img src="./img/product01.png" alt="">
+											</div>
+											<div class="product-body">
+												<h3 class="product-name"><a href="#">product name goes here</a></h3>
+												<h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
+											</div>
+											<button class="delete"><i class="fa fa-close"></i></button>
+										</div>
+
+										<div class="product-widget">
+											<div class="product-img">
+												<img src="./img/product02.png" alt="">
+											</div>
+											<div class="product-body">
+												<h3 class="product-name"><a href="#">product name goes here</a></h3>
+												<h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
+											</div>
+											<button class="delete"><i class="fa fa-close"></i></button>
+										</div>
+									</div>
+									<div class="cart-summary">
+										<small>3 Item(s) selected</small>
+										<h5>SUBTOTAL: $2940.00</h5>
+									</div>
+									<div class="cart-btns">
+										<a href="#">View Cart</a>
+										<a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
+									</div>
+								</div>
+							</div>
+							<!-- /Cart -->
+
+							<!-- Menu Toogle -->
+							<div class="menu-toggle">
+								<a href="#">
+									<i class="fa fa-bars"></i>
+									<span>Menu</span>
+								</a>
+							</div>
+							<!-- /Menu Toogle -->
+						</div>
+					</div>
+					<!-- /ACCOUNT -->
+				</div>
+				<!-- row -->
+			</div>
+			<!-- container -->
 		</div>
-		<div class="collapse navbar-collapse" id="myNavbar">
-			<ul class="nav navbar-nav">
-				<li><a href=" <c:url value="/" />">Home</a></li>
-				<li><a href=" <c:url value="/getAllProducts" />">Product
-						List</a></li>
-				<li><a href=" <c:url value="/aboutus" />">About Us</a></li>
-				
-				<security:authorize access="hasRole('ROLE_USER')">
-				<li><a href=" <c:url value="/contactus" />">Contact Us</a></li>
-				</security:authorize>
-				
-				<!-- 			Only admin can view this link -->
-				<security:authorize access="hasRole('ROLE_ADMIN')">
-					<li><a href=" <c:url value="/admin/product/addProduct" />">Add
-							Product</a></li>
-				</security:authorize>
-			</ul>
+		<!-- /MAIN HEADER -->
+	</header>
+	<!-- /HEADER -->
 
-			<ul class="nav navbar-nav navbar-right">
-
-				<c:if test="${!empty pageContext.request.userPrincipal.name}">
-					<li><a href="<c:url value="/" />"><span
-							class="glyphicon glyphicon-shopping-user"></span>Welcome..${pageContext.request.userPrincipal.name}</a></li>
-
-					<security:authorize access="hasRole('ROLE_USER')">
-						<li><a href="<c:url value="/cart/getCartById" />"><span
-								class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
-					</security:authorize>
-					<li><a href="<c:url value="/logout" />"><span
-							class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-				</c:if>
-			</ul>
-
-
-			<ul class="nav navbar-nav navbar-right">
-
-				<c:if test="${pageContext.request.userPrincipal.name==null}">
-					<li><a href="<c:url value="/login" />"><span
-							class="glyphicon glyphicon-shopping-cart"></span>My Cart</a></li>
-					<li><a href="<c:url value="/customer/registration" />"><span
-							class="glyphicon glyphicon-log-user"></span> SignUp</a></li>
-					<li><a href="<c:url value="/login" />"><span
-							class="glyphicon glyphicon-log-in"></span> Login</a></li>
-				</c:if>
-			</ul>
+	<!-- NAVIGATION -->
+	<nav id="navigation">
+		<!-- container -->
+		<div class="container">
+			<!-- responsive-nav -->
+			<div id="responsive-nav">
+				<!-- NAV -->
+				<ul class="main-nav nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#">Laptops</a></li>
+					<li><a href="#">Smartphones</a></li>
+					<li><a href="#">Tablets</a></li>
+					<li><a href="#">Cameras</a></li>
+					<li><a href="#">Accessories</a></li>
+				</ul>
+				<!-- /NAV -->
+			</div>
+			<!-- /responsive-nav -->
 		</div>
-	</div>
+		<!-- /container -->
 	</nav>
+	<!-- /NAVIGATION -->
 
+	<!-- jQuery Plugins -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/slick.min.js"></script>
+	<script src="js/nouislider.min.js"></script>
+	<script src="js/jquery.zoom.min.js"></script>
+	<script src="js/main.js"></script>
 
 
 </body>
