@@ -75,18 +75,17 @@ public class ProductController {
 	// this is used for getting the product by productId
 
 	@RequestMapping("getProductById/{productId}")
-	public ModelAndView getProductById(@PathVariable(value = "productId") String productId) {
+	public ModelAndView getProductById(@PathVariable(value = "productId") int productId) {
 		Product product = productService.getProductById(productId);
 		return new ModelAndView("productPage", "productObj", product);
 	}
 
 	@RequestMapping("/admin/delete/{productId}")
-	public String deleteProduct(@PathVariable(value = "productId") String productId) {
+	public String deleteProduct(@PathVariable(value = "productId") int productId) {
 
 		// Here the Path class is used to refer the path of the file
 
-		Path path = Paths.get("C:/Users/Ismail/workspace/ShoppingCart/src/main/webapp/WEB-INF/resource/images/products/"
-				+ productId + ".jpg");
+		Path path = Paths.get(productService.getImageDirPath(), productId + ".jpg");
 
 		if (Files.exists(path)) {
 			try {
@@ -122,8 +121,7 @@ public class ProductController {
 		MultipartFile image = product.getProductImage();
 		if (image != null && !image.isEmpty()) {
 			Path path = Paths
-					.get("C:/Users/Ismail/workspace/ShoppingCart/src/main/webapp/WEB-INF/resource/images/products/"
-							+ product.getProductId() + ".jpg");
+					.get(productService.getImageDirPath(), product.getProductId() + ".jpg");
 
 			try {
 				image.transferTo(new File(path.toString()));
@@ -139,7 +137,8 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/admin/product/editProduct/{productId}")
-	public ModelAndView getEditForm(@PathVariable(value = "productId") String productId) {
+	public ModelAndView getEditForm(@PathVariable(value = "productId") int productId) {
+		System.out.println(productId);
 		Product product = productService.getProductById(productId);
 		return new ModelAndView("editProduct", "editProductObj", product);
 	}

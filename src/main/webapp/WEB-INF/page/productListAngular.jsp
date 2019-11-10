@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page isELIgnored="false"%>
 
@@ -8,7 +8,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Search Products</title>
 <link rel="icon" type="image/x-icon"
 	href="<c:url value="../resource/images/favicon1.png"/>" />
@@ -61,7 +61,7 @@
 							<td>{{b.productCategory}}</td>
 							<td>{{b.productName}}</td>
 							<td>{{b.productPrice}}</td>
-							<td>{{b.unitStock}}</td>
+							<td>{{b.quantity}}</td>
 							<td style="width: 180px">{{b.productDescription}}</td>
 							<td>{{b.productManufacturer}}</td>
 							<td><a href="getProductById/{{b.productId}}"

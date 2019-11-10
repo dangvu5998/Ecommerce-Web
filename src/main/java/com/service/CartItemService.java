@@ -6,6 +6,6 @@ import com.model.CartItem;
 public interface CartItemService {
 
 	void addCartItem(CartItem cartItem);
-	void removeCartItem(Long CartItemId);
+	void removeCartItem(int CartItemId);
 	void removeAllCartItems(Cart cart);
 }

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -8,7 +8,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Add Product</title>
 <link rel="stylesheet"
 	href="<c:url value="/resource/bootstrap/css/bootstrap.min.css"/>">
@@ -72,10 +72,10 @@
 								 <form:errors path="productPrice"></form:errors>
 							</div>
 							<div class="col-sm-4 form-group">
-								<form:label path="unitStock">Number of Products</form:label>
+								<form:label path="quantity">Number of Products</form:label>
 								 <form:input type="text"
 									placeholder="Number of Products.." class="form-control"
-									path="unitStock"></form:input>
+									path="quantity"></form:input>
 							</div>
 						</div>
 					 	<div class="form-group">

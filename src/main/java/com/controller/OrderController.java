@@ -21,7 +21,7 @@ public class OrderController {
 	private CustomerOrderService customerOrderService;
 
 	@RequestMapping("/order/{cartId}")
-	public String createOrder(@PathVariable("cartId") Long cartId) {
+	public String createOrder(@PathVariable("cartId") int cartId) {
 
 		CustomerOrder customerOrder = new CustomerOrder();
 
@@ -40,6 +40,6 @@ public class OrderController {
 
 		customerOrderService.addCustomerOrder(customerOrder);
 
-		return "redirect:/checkout?cartId=" + Long.toString(cartId);
+		return "redirect:/checkout?cartId=" + Integer.toString(cartId);
 	}
 }

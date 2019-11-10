@@ -16,20 +16,23 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 @Entity
-@Table(name = "item")
+@Table(name = "product")
 public class Product implements Serializable {
 
 	private static final long serialVersionUID = 5186013952828648626L;
 
 	@Id
-	@Column(name = "Id")
+	@Column(name = "productId")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long productId;
+	private int productId;
 	
 	@Column(name="category")
 	private String productCategory;
 	
-	@Column(name = "description")
+	@Column(name = "overview")
+	private String productOverview;
+	
+	@Column(name = "description", length = 1000)
 	private String productDescription;
 	
 	@Column(name = "manufacturer")
@@ -44,15 +47,16 @@ public class Product implements Serializable {
 	@Column(name = "price")
 	private double productPrice;
 	
-	@Column(name = "unit")
-	private String unitStock;
+	@Column(name = "quantity")
+	@Min(value = 0, message = "Minimum value should be greater than 0")
+	private int quantity;
 
 	@Transient
 	private MultipartFile productImage;
 
 	// Getters and Setter
 
-	public Long getProductId() {
+	public int getProductId() {
 		return productId;
 	}
 
@@ -62,6 +66,10 @@ public class Product implements Serializable {
 
 	public String getProductDescription() {
 		return productDescription;
+	}
+
+	public String getProductOverview() {
+		return productOverview;
 	}
 
 	public String getProductManufacturer() {
@@ -76,11 +84,11 @@ public class Product implements Serializable {
 		return productPrice;
 	}
 
-	public String getUnitStock() {
-		return unitStock;
+	public int getquantity() {
+		return quantity;
 	}
 
-	public void setProductId(Long productId) {
+	public void setProductId(int productId) {
 		this.productId = productId;
 	}
 
@@ -90,6 +98,10 @@ public class Product implements Serializable {
 
 	public void setProductDescription(String productDescription) {
 		this.productDescription = productDescription;
+	}
+
+	public void setProductOverview(String productOverview) {
+		this.productOverview = productOverview;
 	}
 
 	public void setProductManufacturer(String productManufacturer) {
@@ -104,8 +116,8 @@ public class Product implements Serializable {
 		this.productPrice = productPrice;
 	}
 
-	public void setUnitStock(String unitStock) {
-		this.unitStock = unitStock;
+	public void setquantity(int quantity) {
+		this.quantity = quantity;
 	}
 
 	public MultipartFile getProductImage() {
@@ -117,8 +129,8 @@ public class Product implements Serializable {
 	}
 
 	// Constructors
-	public Product(Long productId, String productCategory, String productDescription, String productManufacturer,
-			String productName, double productPrice, String unitStock) {
+	public Product(int productId, String productCategory, String productDescription, String productManufacturer,
+			String productName, double productPrice, int quantity) {
 		super();
 		this.productId = productId;
 		this.productCategory = productCategory;
@@ -126,7 +138,7 @@ public class Product implements Serializable {
 		this.productManufacturer = productManufacturer;
 		this.productName = productName;
 		this.productPrice = productPrice;
-		this.unitStock = unitStock;
+		this.quantity = quantity;
 	}
 
 	public Product() {

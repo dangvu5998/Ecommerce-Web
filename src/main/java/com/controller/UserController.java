@@ -51,7 +51,6 @@ public class UserController {
 		if (result.hasErrors())
 			return "register";
 		System.out.println(customer.getFirstName());
-		System.out.println(customer.getCustomerId());
 		customerService.addCustomer(customer);
 		model.addAttribute("registrationSuccess", "Registered Successfully. Login using username and password");
 		return "login";

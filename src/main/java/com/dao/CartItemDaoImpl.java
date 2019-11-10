@@ -33,7 +33,7 @@ public class CartItemDaoImpl implements CartItemDao {
 		session.close();
 	}
 
-	public void removeCartItem(Long CartItemId) {
+	public void removeCartItem(int CartItemId) {
 		Session session = sessionFactory.openSession();
 		CartItem cartItem = (CartItem) session.get(CartItem.class, CartItemId);
 		session.delete(cartItem);

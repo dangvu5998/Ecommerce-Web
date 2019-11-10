@@ -17,7 +17,7 @@ public class BillingAddress implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long billindAddressId;
+	private int billingAddressId;
 	private String address;
 	private String city;
 	private String state;
@@ -35,12 +35,12 @@ public class BillingAddress implements Serializable {
 		this.customer = customer;
 	}
 
-	public Long getBillindAddressId() {
-		return billindAddressId;
+	public int getbillingAddressId() {
+		return billingAddressId;
 	}
 
-	public void setBillindAddressId(Long billindAddressId) {
-		this.billindAddressId = billindAddressId;
+	public void setbillingAddressId(int billingAddressId) {
+		this.billingAddressId = billingAddressId;
 	}
 
 	public String getAddress() {

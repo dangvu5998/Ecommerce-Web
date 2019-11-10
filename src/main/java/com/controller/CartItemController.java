@@ -70,18 +70,17 @@ public class CartItemController {
 
 	@RequestMapping("/cart/add/{productId}")
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
-	public void addCartItem(@PathVariable(value = "productId") String productId) {
+	public void addCartItem(@PathVariable(value = "productId") int productId) {
 		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String emailId = user.getUsername();
 		Customer customer = customerService.getCustomerByemailId(emailId);
-		System.out.println("Customer : " + customer.getUsers().getEmailId());
 		Cart cart = customer.getCart();
 		System.out.println(cart);
 		List<CartItem> cartItems = cart.getCartItem();
 		Product product = productService.getProductById(productId);
 		for (int i = 0; i < cartItems.size(); i++) {
 			CartItem cartItem = cartItems.get(i);
-			if (product.getProductId().equals(cartItem.getProduct().getProductId())) {
+			if (product.getProductId() == cartItem.getProduct().getProductId()) {
 				cartItem.setQuality(cartItem.getQuality() + 1);
 				cartItem.setPrice(cartItem.getQuality() * cartItem.getProduct().getProductPrice());
 				cartItemService.addCartItem(cartItem);
@@ -98,13 +97,13 @@ public class CartItemController {
 
 	@RequestMapping("/cart/removeCartItem/{cartItemId}")
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
-	public void removeCartItem(@PathVariable(value = "cartItemId") Long cartItemId) {
+	public void removeCartItem(@PathVariable(value = "cartItemId") int cartItemId) {
 		cartItemService.removeCartItem(cartItemId);
 	}
 
 	@RequestMapping("/cart/removeAllItems/{cartId}")
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
-	public void removeAllCartItems(@PathVariable(value = "cartId") Long cartId) {
+	public void removeAllCartItems(@PathVariable(value = "cartId") int cartId) {
 		Cart cart = cartService.getCartByCartId(cartId);
 		cartItemService.removeAllCartItems(cart);
 	}

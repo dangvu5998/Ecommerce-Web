@@ -24,7 +24,7 @@ public class UserDaoImpl implements UserDao {
 		return users;
 	}
 
-	public void deleteUser(String userId) {
+	public void deleteUser(int userId) {
 		Session session = sessionFactory.openSession();
 		User user = (User) session.get(User.class, userId);
 		session.saveOrUpdate(user);
@@ -39,7 +39,7 @@ public class UserDaoImpl implements UserDao {
 		session.close();
 	}
 
-	public User getUserById(String userId) {
+	public User getUserById(int userId) {
 		// Reading the records from the table
 		Session session = sessionFactory.openSession();
 		// select * from Product where isbn=i

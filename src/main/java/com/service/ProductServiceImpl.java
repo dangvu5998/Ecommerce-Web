@@ -29,12 +29,12 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	
-	public Product getProductById(String productId) {
+	public Product getProductById(int productId) {
 		return productDao.getProductById(productId);
 	}
 
 	
-	public void deleteProduct(String productId) {
+	public void deleteProduct(int productId) {
 		productDao.deleteProduct(productId);
 	}
 	
@@ -44,6 +44,10 @@ public class ProductServiceImpl implements ProductService {
 	
 	public void editProduct(Product product){
 		productDao.editProduct(product);
+	}
+
+	public String getImageDirPath() {
+		return "/media/trivu/data/dh/CNPM/ShoppingCart/src/main/webapp/WEB-INF/resource/images/products";
 	}
 
 }

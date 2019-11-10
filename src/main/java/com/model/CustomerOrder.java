@@ -18,7 +18,7 @@ public class CustomerOrder implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long customerOrderId;
+	private int customerOrderId;
 
 	@OneToOne
 	@JoinColumn(name = "cartId")
@@ -44,11 +44,11 @@ public class CustomerOrder implements Serializable {
 		this.billingAddress = billingAddress;
 	}
 
-	public Long getCustomerOrderId() {
+	public int getCustomerOrderId() {
 		return customerOrderId;
 	}
 
-	public void setCustomerOrderId(Long customerOrderId) {
+	public void setCustomerOrderId(int customerOrderId) {
 		this.customerOrderId = customerOrderId;
 	}
 

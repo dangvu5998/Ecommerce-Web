@@ -20,7 +20,7 @@ public class CartServiceImpl implements CartService {
 		this.cartDao = cartDao;
 	}
 
-	public Cart getCartByCartId(Long CartId) {
+	public Cart getCartByCartId(int CartId) {
 
 		return cartDao.getCartByCartId(CartId);
 	}

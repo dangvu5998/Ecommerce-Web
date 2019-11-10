@@ -6,9 +6,9 @@ import com.model.Cart;
 
 public interface CartDao {
 
-	Cart getCartByCartId(Long CartId);
+	Cart getCartByCartId(int CartId);
 	
-	Cart validate(Long cartId) throws IOException;
+	Cart validate(int cartId) throws IOException;
 	
 	void update(Cart cart);
 }

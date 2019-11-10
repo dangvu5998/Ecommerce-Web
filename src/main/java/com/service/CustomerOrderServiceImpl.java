@@ -23,7 +23,7 @@ public class CustomerOrderServiceImpl implements CustomerOrderService {
 		customerOrderDao.addCustomerOrder(customerOrder);
 	}
 
-	public double getCustomerOrderGrandTotal(Long cartId) {
+	public double getCustomerOrderGrandTotal(int cartId) {
 		double grandTotal=0;
 		Cart cart = cartService.getCartByCartId(cartId);
 		List<CartItem> cartItems = cart.getCartItem();

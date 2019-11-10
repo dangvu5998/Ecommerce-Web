@@ -29,7 +29,7 @@ public class CartDaoImpl implements CartDao {
 		this.sessionFactory = sessionFactory;
 	}
 
-	public Cart getCartByCartId(Long CartId) {
+	public Cart getCartByCartId(int CartId) {
 		Session session = sessionFactory.openSession();
 		Cart cart = (Cart) session.get(Cart.class, CartId);
 		// System.out.println(cart.getCartId() + " " + cart.getCartItem());
@@ -39,7 +39,7 @@ public class CartDaoImpl implements CartDao {
 
 	}
 
-	public Cart validate(Long cartId) throws IOException {
+	public Cart validate(int cartId) throws IOException {
 		Cart cart = getCartByCartId(cartId);
 		if (cart == null || cart.getCartItem().size() == 0) {
 			throw new IOException(cartId + "");
@@ -50,7 +50,7 @@ public class CartDaoImpl implements CartDao {
 
 	public void update(Cart cart) {
 
-		Long cartId = cart.getCartId();
+		int cartId = cart.getCartId();
 		double grandTotal = customerOrderService.getCustomerOrderGrandTotal(cartId);
 		cart.setTotalPrice(grandTotal);
 

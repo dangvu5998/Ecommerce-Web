@@ -8,11 +8,13 @@ public interface ProductService {
 
 	public List<Product> getAllProducts();
 
-	Product getProductById(String productId);
+	Product getProductById(int productId);
 
-	void deleteProduct(String productId);
+	void deleteProduct(int productId);
 	
 	void addProduct(Product product);
 	
 	void editProduct(Product product);
+
+	String getImageDirPath();
 }

@@ -5,7 +5,6 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -17,7 +16,7 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 2681531852204068105L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long userId;
+	private int userId;
 	private String emailId;
 	private String password;
 	private boolean enabled;
@@ -33,11 +32,11 @@ public class User implements Serializable {
 		this.customer = customer;
 	}
 
-	public Long getUserId() {
+	public int getUserId() {
 		return userId;
 	}
 
-	public void setUserId(Long userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 

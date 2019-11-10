@@ -49,7 +49,7 @@ public class CartController {
 	}
 	
 	@RequestMapping("/cart/getCart/{cartId}")
-	public @ResponseBody Cart getCartItems(@PathVariable(value="cartId")Long cartId){
+	public @ResponseBody Cart getCartItems(@PathVariable(value="cartId")int cartId){
 		return cartService.getCartByCartId(cartId);
 	}
 	
