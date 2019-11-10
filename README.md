@@ -43,7 +43,7 @@ modules
 
 2. Install maven dependencies
 ```
-maven install
+mvn install
 ```
 2. Install Database - MySQL 5.7
 
