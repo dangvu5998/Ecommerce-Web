@@ -38,7 +38,7 @@ public class HomeController {
 	public ModelAndView home() {
 		System.out.println("ok");
 		List<Product> products = productService.getAllProducts();
-		return new ModelAndView("index", "products", products);
+		return new ModelAndView("home", "products", products);
 	}
 
 	@RequestMapping("/hello")

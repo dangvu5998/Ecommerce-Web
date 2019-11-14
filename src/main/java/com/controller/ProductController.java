@@ -75,10 +75,10 @@ public class ProductController {
 	
 	// this is used for getting the product by productId
 
-	@RequestMapping("getProductById/{productId}")
+	@RequestMapping("products/{productId}")
 	public ModelAndView getProductById(@PathVariable(value = "productId") int productId) {
 		Product product = productService.getProductById(productId);
-		return new ModelAndView("productPage", "productObj", product);
+		return new ModelAndView("productDetail", "product", product);
 	}
 
 	@RequestMapping("/admin/delete/{productId}")

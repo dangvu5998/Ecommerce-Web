@@ -43,10 +43,14 @@ public class Product implements Serializable {
 	private String productName;
 	
 	@NotNull(message="Please provide some price")
-	@Min(value = 100, message = "Minimum value should be greater than 100")
+	@Min(value = 0, message = "Minimum value should be greater than 0")
 	@Column(name = "price")
 	private double productPrice;
 	
+	@Column(name = "salePrice")
+	@Min(value = 0, message = "Minimum value should be greater than 0")
+	private double productSalePrice;
+
 	@Column(name = "quantity")
 	@Min(value = 0, message = "Minimum value should be greater than 0")
 	private int quantity;
@@ -84,8 +88,12 @@ public class Product implements Serializable {
 		return productPrice;
 	}
 
-	public int getquantity() {
+	public int getQuantity() {
 		return quantity;
+	}
+
+	public double getProductSalePrice() {
+		return productSalePrice;
 	}
 
 	public void setProductId(int productId) {
@@ -126,6 +134,10 @@ public class Product implements Serializable {
 
 	public void setProductImage(MultipartFile productImage) {
 		this.productImage = productImage;
+	}
+
+	public void setProductSalePrice(double productSalePrice) {
+		this.productSalePrice = productSalePrice;
 	}
 
 	// Constructors

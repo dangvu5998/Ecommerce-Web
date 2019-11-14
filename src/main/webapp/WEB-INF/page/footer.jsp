@@ -1,38 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ page isELIgnored="false"%>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<!-- Google font -->
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
-
-	<!-- Bootstrap -->
-	<link type="text/css" rel="stylesheet" href="resource/css/bootstrap.min.css"/>
-
-	<!-- Slick -->
-	<link type="text/css" rel="stylesheet" href="resource/css/slick.css"/>
-	<link type="text/css" rel="stylesheet" href="resource/css/slick-theme.css"/>
-
-	<!-- nouislider -->
-	<link type="text/css" rel="stylesheet" href="resource/css/nouislider.min.css"/>
-
-	<!-- Font Awesome Icon -->
-	<link rel="stylesheet" href="resource/css/font-awesome.min.css">
-
-	<!-- Custom stlylesheet -->
-	<link type="text/css" rel="stylesheet" href="resource/css/style.css"/>
-</head>
-<body>
 	<footer id="footer">
 		<!-- top footer -->
 		<div class="section">
@@ -126,11 +98,11 @@
 		</div>
 		<!-- /bottom footer -->
 	</footer>
-	<script src="resource/js/jquery.min.js"></script>
-	<script src="resource/js/bootstrap.min.js"></script>
-	<script src="resource/js/slick.min.js"></script>
-	<script src="resource/js/nouislider.min.js"></script>
-	<script src="resource/js/jquery.zoom.min.js"></script>
-	<script src="resource/js/main.js"></script>
+	<script src="/resource/js/jquery.min.js"></script>
+	<script src="/resource/js/bootstrap.min.js"></script>
+	<script src="/resource/js/slick.min.js"></script>
+	<script src="/resource/js/nouislider.min.js"></script>
+	<script src="/resource/js/jquery.zoom.min.js"></script>
+	<script src="/resource/js/main.js"></script>
 </body>
 </html>

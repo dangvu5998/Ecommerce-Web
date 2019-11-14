@@ -12,20 +12,20 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
 	<!-- Bootstrap -->
-	<link type="text/css" rel="stylesheet" href="resource/css/bootstrap.min.css"/>
+	<link type="text/css" rel="stylesheet" href="/resource/css/bootstrap.min.css"/>
 
 	<!-- Slick -->
-	<link type="text/css" rel="stylesheet" href="resource/css/slick.css"/>
-	<link type="text/css" rel="stylesheet" href="resource/css/slick-theme.css"/>
+	<link type="text/css" rel="stylesheet" href="/resource/css/slick.css"/>
+	<link type="text/css" rel="stylesheet" href="/resource/css/slick-theme.css"/>
 
 	<!-- nouislider -->
-	<link type="text/css" rel="stylesheet" href="resource/css/nouislider.min.css"/>
+	<link type="text/css" rel="stylesheet" href="/resource/css/nouislider.min.css"/>
 
 	<!-- Font Awesome Icon -->
-	<link rel="stylesheet" href="resource/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/resource/css/font-awesome.min.css">
 
 	<!-- Custom stlylesheet -->
-	<link type="text/css" rel="stylesheet" href="resource/css/style.css"/>
+	<link type="text/css" rel="stylesheet" href="/resource/css/style.css"/>
 
 </head>
 <body>
@@ -57,7 +57,7 @@
 					<div class="col-md-3">
 						<div class="header-logo">
 							<a href="/" class="logo">
-								<img src="resource/images/logo.png" alt="">
+								<img src="/resource/images/logo.png" alt="">
 							</a>
 						</div>
 					</div>
@@ -105,7 +105,7 @@
 									<div class="cart-list">
 										<div class="product-widget">
 											<div class="product-img">
-												<img src="./img/product01.png" alt="">
+												<img src="/resource/images/product01.png" alt="">
 											</div>
 											<div class="product-body">
 												<h3 class="product-name"><a href="#">product name goes here</a></h3>
@@ -116,7 +116,7 @@
 
 										<div class="product-widget">
 											<div class="product-img">
-												<img src="./img/product02.png" alt="">
+												<img src="/resource/images/product02.png" alt="">
 											</div>
 											<div class="product-body">
 												<h3 class="product-name"><a href="#">product name goes here</a></h3>
@@ -179,15 +179,3 @@
 		<!-- /container -->
 	</nav>
 	<!-- /NAVIGATION -->
-
-	<!-- jQuery Plugins -->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/slick.min.js"></script>
-	<script src="js/nouislider.min.js"></script>
-	<script src="js/jquery.zoom.min.js"></script>
-	<script src="js/main.js"></script>
-
-
-</body>
-</html>
