@@ -3,7 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<%@ include file="head.jsp"%>
+<head>
+	<%@ include file="head.jsp"%>
+	<title>Mua đồ điện tử online</title>
+</head>
 <body>
 	<%@ include file="navbar.jsp"%>
 	<div class="section">

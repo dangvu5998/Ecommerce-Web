@@ -4,7 +4,6 @@
 <%@ taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
 <%@ page isELIgnored="false"%>
-<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
@@ -24,5 +23,3 @@
 
 	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="/resource/css/style.css"/>
-
-</head>

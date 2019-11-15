@@ -31,7 +31,7 @@ public class UserController {
 		this.customerService = customerService;
 	}
 
-	@RequestMapping(value = "/customer/registration")
+	@RequestMapping(value = "/registration")
 	public ModelAndView getRegistrationForm() {
 		Customer customer = new Customer();
 		User user = new User();
@@ -45,7 +45,7 @@ public class UserController {
 	}
 
 	// to insert the data
-	@RequestMapping(value = "/customer/registration", method = RequestMethod.POST)
+	@RequestMapping(value = "/registration", method = RequestMethod.POST)
 	public String registerCustomer(@Valid @ModelAttribute(value = "customer") Customer customer, Model model,
 			BindingResult result) {
 		if (result.hasErrors())

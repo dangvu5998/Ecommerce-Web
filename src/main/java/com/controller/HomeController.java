@@ -34,9 +34,8 @@ public class HomeController {
 		this.productService = productService;
 	}
 
-	@RequestMapping("/test")
+	@RequestMapping("/")
 	public ModelAndView home() {
-		System.out.println("ok");
 		List<Product> products = productService.getAllProducts();
 		return new ModelAndView("home", "products", products);
 	}
@@ -50,9 +49,9 @@ public class HomeController {
 	public String login(@RequestParam(value = "error", required = false) String error,
 			@RequestParam(value = "logout", required = false) String logout, Model model) {
 		if (error != null)
-			model.addAttribute("error", "Invalid username and Password");
+			model.addAttribute("error", "Tên đăng nhập và mật khẩu không hợp lệ");
 		if (logout != null)
-			model.addAttribute("logout", "You have logged out successfully");
+			model.addAttribute("logout", "Tài khoản đã đăng xuất");
 		return "login";
 	}
 

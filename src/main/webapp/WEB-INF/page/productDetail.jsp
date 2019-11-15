@@ -3,7 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<%@ include file="head.jsp"%>
+<head>
+	<%@ include file="head.jsp"%>
+	<title>${product.productName}</title>
+</head>
 <body>
 <%@ include file="navbar.jsp"%>
 	<!-- BREADCRUMB -->

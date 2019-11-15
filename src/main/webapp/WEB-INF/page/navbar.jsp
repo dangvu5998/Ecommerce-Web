@@ -16,7 +16,16 @@
 			</ul>
 			<ul class="header-links pull-right">
 				<li><a href="#"><i class="fa fa-dollar"></i> VND</a></li>
-				<li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
+				<!-- <li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li> -->
+				<c:choose>
+				<c:when test="${!empty pageContext.request.userPrincipal.name}">
+					<li><a href="/"><i class="fa fa-user-o"></i> ${pageContext.request.userPrincipal.name}</a></li>
+					<li><a href="/logout"><span class="fa fa-sign-out"></span> Đăng xuất</a></li>
+				</c:when>
+				<c:otherwise>
+					<li><a href="/login"><span class="fa fa-sign-in"></span> Đăng nhập</a></li>
+				</c:otherwise>
+				</c:choose>
 			</ul>
 		</div>
 	</div>
@@ -60,19 +69,19 @@
 				<div class="col-md-3 clearfix">
 					<div class="header-ctn">
 						<!-- Wishlist -->
-						<div>
+						<!-- <div>
 							<a href="#">
 								<i class="fa fa-heart-o"></i>
-								<span>Your Wishlist</span>
+								<span>Wishlist</span>
 								<div class="qty">2</div>
 							</a>
-						</div>
+						</div> -->
 						<!-- /Wishlist -->
 
 						<!-- Cart -->
+						<security:authorize access="hasRole('ROLE_USER')">
 						<div class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-								<i class="fa fa-shopping-cart"></i>
+							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" href="/cart">
 								<span>Giỏ hàng</span>
 								<div class="qty">3</div>
 							</a>
@@ -110,6 +119,7 @@
 								</div>
 							</div>
 						</div>
+						</security:authorize>
 						<!-- /Cart -->
 
 						<!-- Menu Toogle -->
