@@ -15,7 +15,7 @@
 			<!-- row -->
 			<div class="row">
 				<!-- shop -->
-				<div class="col-md-4 col-xs-6">
+				<div class="col-md-4 col-xs-12">
 					<div class="shop">
 						<div class="shop-img">
 							<img src="/resource/images/shop01.png" alt="">
@@ -29,7 +29,7 @@
 				<!-- /shop -->
 
 				<!-- shop -->
-				<div class="col-md-4 col-xs-6">
+				<div class="col-md-4 col-xs-12">
 					<div class="shop">
 						<div class="shop-img">
 							<img src="/resource/images/shop03.png" alt="">
@@ -43,7 +43,7 @@
 				<!-- /shop -->
 
 				<!-- shop -->
-				<div class="col-md-4 col-xs-6">
+				<div class="col-md-4 col-xs-12">
 					<div class="shop">
 						<div class="shop-img">
 							<img src="/resource/images/shop02.png" alt="">

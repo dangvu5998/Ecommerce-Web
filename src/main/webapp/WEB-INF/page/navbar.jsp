@@ -82,6 +82,7 @@
 						<security:authorize access="hasRole('ROLE_USER')">
 						<div class="dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" href="/cart">
+								<i class="fa fa-shopping-cart"></i>
 								<span>Giỏ hàng</span>
 								<div class="qty">3</div>
 							</a>

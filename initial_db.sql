@@ -1,7 +1,7 @@
 ALTER DATABASE `java_ecommerce` CHARACTER SET utf8 COLLATE utf8_general_ci;
-INSERT INTO users (emailId, enabled, password)
+INSERT INTO user (emailId, enabled, password)
 VALUES ('admin@gmail.com', 1, 'admin');
-INSERT INTO authorities (authorities, emailId)
+INSERT INTO authority (authority, emailId)
 VALUES ('ROLE_ADMIN', 'admin@gmail.com');
 
 INSERT INTO `product` (`productId`, `description`, `name`, `overview`, `quantity`, `price`, `category`, `salePrice`) VALUES

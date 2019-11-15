@@ -33,10 +33,6 @@ public class OrderController {
 
 		customerOrder.setCustomer(customer);
 		// Set customerid
-		// Set ShippingAddressId
-		customerOrder.setShippingAddress(customer.getShippingAddress());
-
-		customerOrder.setBillingAddress(customer.getBillingAddress());
 
 		customerOrderService.addCustomerOrder(customerOrder);
 

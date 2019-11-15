@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.model.BillingAddress;
 import com.model.Customer;
-import com.model.ShippingAddress;
 import com.model.User;
 import com.service.CustomerService;
 
@@ -31,28 +29,25 @@ public class UserController {
 		this.customerService = customerService;
 	}
 
-	@RequestMapping(value = "/registration")
+	@RequestMapping(value = "/register")
 	public ModelAndView getRegistrationForm() {
 		Customer customer = new Customer();
 		User user = new User();
-		BillingAddress ba = new BillingAddress();
-		ShippingAddress sa = new ShippingAddress();
-		customer.setShippingAddress(sa);
-		customer.setBillingAddress(ba);
-		customer.setUsers(user);
+		customer.setUser(user);
 
 		return new ModelAndView("register", "customer", customer);
 	}
 
 	// to insert the data
-	@RequestMapping(value = "/registration", method = RequestMethod.POST)
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String registerCustomer(@Valid @ModelAttribute(value = "customer") Customer customer, Model model,
 			BindingResult result) {
 		if (result.hasErrors())
 			return "register";
 		System.out.println(customer.getFirstName());
+		System.out.println(customer.getUser().getEmailId());
 		customerService.addCustomer(customer);
-		model.addAttribute("registrationSuccess", "Registered Successfully. Login using username and password");
+		model.addAttribute("registrationSuccess", "Đăng ký tài khoản thành công");
 		return "login";
 	}
 }

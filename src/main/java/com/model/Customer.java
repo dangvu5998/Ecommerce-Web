@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import org.hibernate.annotations.GenericGenerator;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -29,30 +28,30 @@ public class Customer implements Serializable {
 	private String lastName;
 	private String customerPhone;
 
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "shippingAddressId")
-	private ShippingAddress shippingAddress;
+	// @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	// @JoinColumn(name = "shippingAddressId")
+	// private ShippingAddress shippingAddress;
 
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "billingAddressId")
-	private BillingAddress billingAddress;
+	// @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	// @JoinColumn(name = "billingAddressId")
+	// private BillingAddress billingAddress;
 
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "userId")
-	private User users;
+	private User user;
 
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "cartId")
 	@JsonIgnore
 	private Cart cart;
 
-	public BillingAddress getBillingAddress() {
-		return billingAddress;
-	}
+	// public BillingAddress getBillingAddress() {
+	// 	return billingAddress;
+	// }
 
-	public void setBillingAddress(BillingAddress billingAddress) {
-		this.billingAddress = billingAddress;
-	}
+	// public void setBillingAddress(BillingAddress billingAddress) {
+	// 	this.billingAddress = billingAddress;
+	// }
 
 	public Cart getCart() {
 		return cart;
@@ -78,13 +77,13 @@ public class Customer implements Serializable {
 		this.customerPhone = customerPhone;
 	}
 
-	public ShippingAddress getShippingAddress() {
-		return shippingAddress;
-	}
+	// public ShippingAddress getShippingAddress() {
+	// 	return shippingAddress;
+	// }
 
-	public void setShippingAddress(ShippingAddress shippingAddress) {
-		this.shippingAddress = shippingAddress;
-	}
+	// public void setShippingAddress(ShippingAddress shippingAddress) {
+	// 	this.shippingAddress = shippingAddress;
+	// }
 
 	public String getFirstName() {
 		return firstName;
@@ -102,12 +101,12 @@ public class Customer implements Serializable {
 		this.lastName = lastName;
 	}
 
-	public User getUsers() {
-		return users;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUsers(User users) {
-		this.users = users;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }

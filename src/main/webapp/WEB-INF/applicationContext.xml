@@ -45,12 +45,12 @@
 			<list>
 				<value>com.model.Product</value>
 				<value>com.model.Authorities</value>
-				<value>com.model.BillingAddress</value>
+				<!-- <value>com.model.BillingAddress</value> -->
 				<value>com.model.Cart</value>
 				<value>com.model.CartItem</value>
 				<value>com.model.Customer</value>
 				<value>com.model.CustomerOrder</value>
-				<value>com.model.ShippingAddress</value>
+				<!-- <value>com.model.ShippingAddress</value> -->
 				<value>com.model.User</value>
 				<value>com.model.Queries</value>
 			</list>
@@ -101,9 +101,9 @@
 			 <security:jdbc-user-service
 				data-source-ref="dataSource"
 				authorities-by-username-query="SELECT 
-				emailId,authorities FROM authorities WHERE emailId =?"
+				emailId,authority FROM authority WHERE emailId =?"
 				users-by-username-query="SELECT 
-				emailId, password, enabled FROM users WHERE emailId=? " />
+				emailId, password, enabled FROM user WHERE emailId=? " />
 				
 		</security:authentication-provider>
 

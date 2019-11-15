@@ -15,35 +15,35 @@
 			<!-- row -->
 			<div class="row">
 				<div class="col-md-4 col-md-offset-4">
-							<div class="section-title">
-								<h3 class="title">Đăng nhập</h3>
-							</div>
-							<c:if test="${!empty querySuccess}">
-								<div class="text-success">${querySuccess}</div>
-							</c:if>
-						
-							<c:if test="${not empty registrationSuccess}">
-								<div class="text-success">${registrationSuccess}</div>
-							</c:if>
-							<c:if test="${not empty logout}">
-								<div class="text-success">${logout}</div>
-							</c:if>
-							<form name="loginForm" action="j_spring_security_check" method="post">
-								<div class="form-group">
-									<label for="email">Email:</label>
-									<input class="input" type="email" name="j_username" placeholder="Email">
-								</div>
-								<div class="form-group">
-									<label for="email">Mật khẩu:</label>
-									<input class="input" type="password" name="j_password" placeholder="Mật khẩu">
-								</div>
-								<c:if test="${not empty error}">
-									<div class="text-danger">${error}</div>
-								</c:if>
-								<button type="submit" class="btn btn-primary" style="margin: auto; display: block;">Đăng nhập</button>
-							</form>
-							<div></div>
-							<div>Chưa có tài khoản? <a class="btn btn-link" href="/registration">Đăng ký</a></div>
+					<div class="section-title">
+						<h3 class="title">Đăng nhập</h3>
+					</div>
+					<c:if test="${!empty querySuccess}">
+						<div class="text-success">${querySuccess}</div>
+					</c:if>
+					
+					<c:if test="${not empty registrationSuccess}">
+						<div class="text-success">${registrationSuccess}</div>
+					</c:if>
+					<c:if test="${not empty logout}">
+						<div class="text-success">${logout}</div>
+					</c:if>
+					<form name="loginForm" action="j_spring_security_check" method="post">
+						<div class="form-group">
+							<label for="email">Email:</label>
+							<input class="input" type="email" name="j_username" placeholder="Email">
+						</div>
+						<div class="form-group">
+							<label for="email">Mật khẩu:</label>
+							<input class="input" type="password" name="j_password" placeholder="Mật khẩu">
+						</div>
+						<c:if test="${not empty error}">
+							<div class="text-danger">${error}</div>
+						</c:if>
+						<button type="submit" class="primary-btn" style="margin: auto; display: block;">Đăng nhập</button>
+					</form>
+					<div></div>
+					<div>Chưa có tài khoản? <a class="btn btn-link" href="/register">Đăng ký</a></div>
 				</div>
 			</div>
 		</div>
@@ -101,7 +101,8 @@
 		</div> -->
 
 	</div>
-	<%@ include file="footer.jsp"%>
+	<%@ include file="footer.jsp"%> 
+	<%@ include file="generalJS.jsp"%> 
 
 </body>
 </html>

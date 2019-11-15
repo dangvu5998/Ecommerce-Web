@@ -29,15 +29,14 @@ public class CustomerDaoImpl implements CustomerDao {
 	}
 
 	public void addCustomer(Customer customer) {
-		System.out.println("Adding customer in dao");
 		Session session = sessionFactory.openSession();
 		//customer - has users,shippingaddress
-		//insert the users,billingaddress
-		customer.getUsers().setEnabled(true);
+		//insert the users
+		customer.getUser().setEnabled(true);
 		
 		Authorities authorities = new Authorities();
-		authorities.setAuthorities("ROLE_USER");
-		authorities.setEmailId(customer.getUsers().getEmailId());
+		authorities.setAuthority("ROLE_USER");
+		authorities.setEmailId(customer.getUser().getEmailId());
 		
 		Cart cart = new Cart();
 		//it is to set CartId for customer table
