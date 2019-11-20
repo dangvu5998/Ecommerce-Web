@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.dao.ProductDao;
 import com.model.Product;
@@ -23,11 +22,14 @@ public class ProductServiceImpl implements ProductService {
 		this.productDao = productDao;
 	}
 
-	@Transactional
 	public List<Product> getAllProducts() {
 		return productDao.getAllProducts();
 	}
 
+	public List<Product> getProductsByQuery(String query, int limit, int offset) {
+		System.out.println("QERY" + query);
+		return productDao.getProductsByQuery(query, limit, offset);
+	}
 	
 	public Product getProductById(int productId) {
 		return productDao.getProductById(productId);

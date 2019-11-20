@@ -4,12 +4,16 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 
 import com.model.Product;
 
 @Repository(value = "productDao")
+@Transactional
 public class ProductDaoImpl implements ProductDao {
 
 	// this class is wired with the sessionFactory to do some operation in the
@@ -35,6 +39,7 @@ public class ProductDaoImpl implements ProductDao {
 		// Reading the records from the table
 		Session session = sessionFactory.openSession();
 		// List<Product> products = session.createQuery("from Product").list();
+		@SuppressWarnings("unchecked")
 		List<Product> products = session.createCriteria(Product.class).list();
 		System.out.println("----- List of Products-----");
 		System.out.println(products);
@@ -74,6 +79,15 @@ public class ProductDaoImpl implements ProductDao {
 		session.update(product);
 		session.flush();
 		session.close();
+	}
+
+	public List<Product> getProductsByQuery(String query, int limit, int offset) {
+		Session session = sessionFactory.openSession();
+		query = "FROM Product " + query;
+		Query querySession = session.createQuery(query);
+		@SuppressWarnings("unchecked")
+		List<Product> products = querySession.setFirstResult(offset).setMaxResults(limit).list();
+		return products;
 	}
 
 }

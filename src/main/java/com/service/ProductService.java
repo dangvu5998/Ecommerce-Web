@@ -10,6 +10,8 @@ public interface ProductService {
 
 	Product getProductById(int productId);
 
+	List<Product> getProductsByQuery(String query, int limit, int offset);
+
 	void deleteProduct(int productId);
 	
 	void addProduct(Product product);

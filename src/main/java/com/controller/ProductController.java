@@ -17,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -72,9 +73,16 @@ public class ProductController {
 		return new ModelAndView("productList", "products", products);
 	}
 	
+	// this is used for getting the product by productId
+	@RequestMapping("products")
+	public ModelAndView getProducts(@RequestParam(defaultValue = "1") int page) {
+		final int NUMBER_PRODUCTS_PER_PAGE = 9;
+		List<Product> products = productService.getProductsByQuery("", NUMBER_PRODUCTS_PER_PAGE, 0);
+		System.out.println(products);
+		return new ModelAndView("products", "products", products);
+	}
 	
 	// this is used for getting the product by productId
-
 	@RequestMapping("products/{productId}")
 	public ModelAndView getProductById(@PathVariable(value = "productId") int productId) {
 		Product product = productService.getProductById(productId);
@@ -153,11 +161,6 @@ public class ProductController {
 	@RequestMapping("/getProductsList")
 	public @ResponseBody List<Product> getProductsListInJson() {
 		return productService.getAllProducts();
-	}
-
-	@RequestMapping("/productsListAngular")
-	public String getProducts() {
-		return "productListAngular";
 	}
 
 }

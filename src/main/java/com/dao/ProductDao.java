@@ -8,6 +8,8 @@ public interface ProductDao {
 
 	List<Product> getAllProducts();
 
+	List<Product> getProductsByQuery(String query, int limit, int offset);
+
 	Product getProductById(int productId);
 
 	void deleteProduct(int productId);

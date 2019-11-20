@@ -151,7 +151,7 @@
 		<div id="responsive-nav">
 			<!-- NAV -->
 			<ul class="main-nav nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
+				<li class="active"><a href="/products">Tất cả sản phẩm</a></li>
 				<li><a href="#">Laptops</a></li>
 				<li><a href="#">Smartphones</a></li>
 				<li><a href="#">Tablets</a></li>

@@ -15,6 +15,7 @@ import com.model.Customer;
 import com.model.User;
 
 @Repository
+@Transactional
 public class CustomerDaoImpl implements CustomerDao {
 
 	@Autowired
@@ -52,6 +53,7 @@ public class CustomerDaoImpl implements CustomerDao {
 
 	public List<Customer> getAllCustomers() {
 		Session session = sessionFactory.openSession();
+		@SuppressWarnings("unchecked")
 		List<Customer> customerList = session.createQuery("from Customer").list();
 		
 		return customerList;
