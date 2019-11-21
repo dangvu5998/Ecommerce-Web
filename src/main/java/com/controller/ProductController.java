@@ -7,6 +7,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 
 import javax.validation.Valid;
 
@@ -73,13 +75,40 @@ public class ProductController {
 		return new ModelAndView("productList", "products", products);
 	}
 	
-	// this is used for getting the product by productId
+	// this is used for getting the product by query
 	@RequestMapping("products")
-	public ModelAndView getProducts(@RequestParam(defaultValue = "1") int page) {
+	public ModelAndView getProducts(@RequestParam(defaultValue = "1") int page,
+		@RequestParam(required = false) String search
+	) {
 		final int NUMBER_PRODUCTS_PER_PAGE = 9;
-		List<Product> products = productService.getProductsByQuery("", NUMBER_PRODUCTS_PER_PAGE, 0);
-		System.out.println(products);
-		return new ModelAndView("products", "products", products);
+		final int PRODUCT_OFFSET = NUMBER_PRODUCTS_PER_PAGE * (page - 1);
+		String currentUrl = "/products?";
+		String pageOptions = "all";
+		String query = "";
+		if (search != null) {
+			pageOptions = "";
+			query += "name LIKE '%" + search + "%'";
+			currentUrl += "search=" + search + "&";
+		}
+		if (query.length() > 0) {
+			query = "WHERE " + query;
+		}
+		List<Product> products = productService.getProductsByQuery(query, NUMBER_PRODUCTS_PER_PAGE, PRODUCT_OFFSET);
+		int productsCount = productService.countProductsByQuery(query, NUMBER_PRODUCTS_PER_PAGE, PRODUCT_OFFSET);
+		Map<String, Object> model = new HashMap<String, Object>();
+		model.put("products", products);
+		model.put("productsCount", productsCount);
+		model.put("pageOptions", pageOptions);
+		model.put("page", page);
+		model.put("beginPagination", Math.max(1, page - 2));
+		int maxPage = productsCount / 9;
+		if (productsCount % 9 != 0) {
+			maxPage++;
+		}
+		model.put("endPagination", Math.min(maxPage, page + 2));
+		model.put("maxPage", maxPage);
+		model.put("currentUrl", currentUrl);
+		return new ModelAndView("products", model);
 	}
 	
 	// this is used for getting the product by productId

@@ -27,10 +27,13 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	public List<Product> getProductsByQuery(String query, int limit, int offset) {
-		System.out.println("QERY" + query);
 		return productDao.getProductsByQuery(query, limit, offset);
 	}
 	
+	public int countProductsByQuery(String query, int limit, int offset) {
+		return productDao.countProductsByQuery(query, limit, offset);
+	}
+
 	public Product getProductById(int productId) {
 		return productDao.getProductById(productId);
 	}

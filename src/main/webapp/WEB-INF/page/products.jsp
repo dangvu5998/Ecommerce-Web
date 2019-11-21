@@ -45,7 +45,7 @@
 					<div id="aside" class="col-md-3">
 						<!-- aside Widget -->
 						<div class="aside">
-							<h3 class="aside-title">Categories</h3>
+							<h3 class="aside-title">Loại</h3>
 							<div class="checkbox-filter">
 
 								<div class="input-checkbox">
@@ -53,7 +53,7 @@
 									<label for="category-1">
 										<span></span>
 										Laptops
-										<small>(120)</small>
+										<!-- <small>(120)</small> -->
 									</label>
 								</div>
 
@@ -62,7 +62,7 @@
 									<label for="category-2">
 										<span></span>
 										Smartphones
-										<small>(740)</small>
+										<!-- <small>(740)</small> -->
 									</label>
 								</div>
 
@@ -71,7 +71,7 @@
 									<label for="category-3">
 										<span></span>
 										Cameras
-										<small>(1450)</small>
+										<!-- <small>(1450)</small> -->
 									</label>
 								</div>
 
@@ -79,8 +79,8 @@
 									<input type="checkbox" id="category-4">
 									<label for="category-4">
 										<span></span>
-										Accessories
-										<small>(578)</small>
+										Phụ kiện
+										<!-- <small>(578)</small> -->
 									</label>
 								</div>
 
@@ -107,7 +107,7 @@
 
 						<!-- aside Widget -->
 						<div class="aside">
-							<h3 class="aside-title">Price</h3>
+							<h3 class="aside-title">Mức giá</h3>
 							<div class="price-filter">
 								<div id="price-slider"></div>
 								<div class="input-number price-min">
@@ -127,46 +127,38 @@
 
 						<!-- aside Widget -->
 						<div class="aside">
-							<h3 class="aside-title">Brand</h3>
+							<h3 class="aside-title">Thương hiệu</h3>
 							<div class="checkbox-filter">
 								<div class="input-checkbox">
 									<input type="checkbox" id="brand-1">
 									<label for="brand-1">
 										<span></span>
 										SAMSUNG
-										<small>(578)</small>
+										<!-- <small>(578)</small> -->
 									</label>
 								</div>
 								<div class="input-checkbox">
 									<input type="checkbox" id="brand-2">
 									<label for="brand-2">
 										<span></span>
-										LG
-										<small>(125)</small>
+										APPLE
+										<!-- <small>(125)</small> -->
 									</label>
 								</div>
 								<div class="input-checkbox">
 									<input type="checkbox" id="brand-3">
 									<label for="brand-3">
 										<span></span>
-										SONY
-										<small>(755)</small>
+										ACER
+										<!-- <small>(755)</small> -->
 									</label>
 								</div>
 								<div class="input-checkbox">
 									<input type="checkbox" id="brand-4">
 									<label for="brand-4">
 										<span></span>
-										SAMSUNG
-										<small>(578)</small>
-									</label>
-								</div>
-								<div class="input-checkbox">
-									<input type="checkbox" id="brand-5">
-									<label for="brand-5">
-										<span></span>
-										LG
-										<small>(125)</small>
+										ASUS
+										<!-- <small>(578)</small> -->
 									</label>
 								</div>
 								<div class="input-checkbox">
@@ -174,7 +166,15 @@
 									<label for="brand-6">
 										<span></span>
 										SONY
-										<small>(755)</small>
+										<!-- <small>(755)</small> -->
+									</label>
+								</div>
+								<div class="input-checkbox">
+									<input type="checkbox" id="brand-7">
+									<label for="brand-7">
+										<span></span>
+										DELL
+										<!-- <small>(755)</small> -->
 									</label>
 								</div>
 							</div>
@@ -188,50 +188,115 @@
 					<div id="store" class="col-md-9">
 						<!-- store products -->
 						<div class="row">
-							<!-- product -->
 							<div class="col-md-4 col-xs-6">
-								<div class="product">
-									<div class="product-img">
-										<img src="./img/product01.png" alt="">
-										<div class="product-label">
-											<span class="sale">-30%</span>
-											<span class="new">NEW</span>
-										</div>
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-										<div class="product-rating">
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-										</div>
-										<div class="product-btns">
-											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-											<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-											<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-										</div>
-									</div>
-									<div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-									</div>
-								</div>
+								<jsp:include page="productItem.jsp">
+									<jsp:param name="name" value="${products[0].productName}" />
+									<jsp:param name="id" value="${products[0].productId}" />
+									<jsp:param name="category" value="${products[0].productCategory}" />
+									<jsp:param name="price" value="${products[0].productPrice}" />
+									<jsp:param name="salePrice" value="${products[0].productSalePrice}" />
+								</jsp:include>
 							</div>
-							<!-- /product -->
+							<div class="col-md-4 col-xs-6">
+								<jsp:include page="productItem.jsp">
+									<jsp:param name="name" value="${products[1].productName}" />
+									<jsp:param name="id" value="${products[1].productId}" />
+									<jsp:param name="category" value="${products[1].productCategory}" />
+									<jsp:param name="price" value="${products[1].productPrice}" />
+									<jsp:param name="salePrice" value="${products[1].productSalePrice}" />
+								</jsp:include>
+							</div>
+							<div class="clearfix visible-sm visible-xs"></div>
+							<div class="col-md-4 col-xs-6">
+								<jsp:include page="productItem.jsp">
+									<jsp:param name="name" value="${products[2].productName}" />
+									<jsp:param name="id" value="${products[2].productId}" />
+									<jsp:param name="category" value="${products[2].productCategory}" />
+									<jsp:param name="price" value="${products[2].productPrice}" />
+									<jsp:param name="salePrice" value="${products[2].productSalePrice}" />
+								</jsp:include>
+							</div>
+							<div class="clearfix visible-lg visible-md"></div>
+							<div class="col-md-4 col-xs-6">
+								<jsp:include page="productItem.jsp">
+									<jsp:param name="name" value="${products[3].productName}" />
+									<jsp:param name="id" value="${products[3].productId}" />
+									<jsp:param name="category" value="${products[3].productCategory}" />
+									<jsp:param name="price" value="${products[3].productPrice}" />
+									<jsp:param name="salePrice" value="${products[3].productSalePrice}" />
+								</jsp:include>
+							</div>
+							<div class="clearfix visible-sm visible-xs"></div>
+							<div class="col-md-4 col-xs-6">
+								<jsp:include page="productItem.jsp">
+									<jsp:param name="name" value="${products[4].productName}" />
+									<jsp:param name="id" value="${products[4].productId}" />
+									<jsp:param name="category" value="${products[4].productCategory}" />
+									<jsp:param name="price" value="${products[4].productPrice}" />
+									<jsp:param name="salePrice" value="${products[4].productSalePrice}" />
+								</jsp:include>
+							</div>
+							<div class="col-md-4 col-xs-6">
+								<jsp:include page="productItem.jsp">
+									<jsp:param name="name" value="${products[5].productName}" />
+									<jsp:param name="id" value="${products[5].productId}" />
+									<jsp:param name="category" value="${products[5].productCategory}" />
+									<jsp:param name="price" value="${products[5].productPrice}" />
+									<jsp:param name="salePrice" value="${products[5].productSalePrice}" />
+								</jsp:include>
+							</div>
+							<div class="clearfix visible-lg visible-md visible-sm visible-xs"></div>
+							<div class="col-md-4 col-xs-6">
+								<jsp:include page="productItem.jsp">
+									<jsp:param name="name" value="${products[6].productName}" />
+									<jsp:param name="id" value="${products[6].productId}" />
+									<jsp:param name="category" value="${products[6].productCategory}" />
+									<jsp:param name="price" value="${products[6].productPrice}" />
+									<jsp:param name="salePrice" value="${products[6].productSalePrice}" />
+								</jsp:include>
+							</div>
+							<div class="col-md-4 col-xs-6">
+								<jsp:include page="productItem.jsp">
+									<jsp:param name="name" value="${products[7].productName}" />
+									<jsp:param name="id" value="${products[7].productId}" />
+									<jsp:param name="category" value="${products[7].productCategory}" />
+									<jsp:param name="price" value="${products[7].productPrice}" />
+									<jsp:param name="salePrice" value="${products[7].productSalePrice}" />
+								</jsp:include>
+							</div>
+							<div class="clearfix visible-sm visible-xs"></div>
+							<div class="col-md-4 col-xs-6">
+								<jsp:include page="productItem.jsp">
+									<jsp:param name="name" value="${products[8].productName}" />
+									<jsp:param name="id" value="${products[8].productId}" />
+									<jsp:param name="category" value="${products[8].productCategory}" />
+									<jsp:param name="price" value="${products[8].productPrice}" />
+									<jsp:param name="salePrice" value="${products[8].productSalePrice}" />
+								</jsp:include>
+							</div>
+						</div>
 
 
 						<!-- store bottom filter -->
 						<div class="store-filter clearfix">
-							<span class="store-qty">Showing 20-100 products</span>
+							<c:if test="${productsCount > 0}">
+							<span class="store-qty">Đang hiển thị sản phẩm ${(page - 1) * 9 + 1}-${((page - 1) * 9) + 9 > productsCount ? productsCount : ((page - 1) * 9) + 9}</span>
+							</c:if>
+							<c:if test="${productsCount <= 0}">
+							<span class="store-qty">Không tìm thấy sản phẩm phù hợp</span>
+							</c:if>
 							<ul class="store-pagination">
-								<li class="active">1</li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+								<c:if test="${page > 1}">
+								<li><a href="${currentUrl}page=${page-1}"><i class="fa fa-angle-left"></i></a></li>
+								</c:if>
+								<c:forEach var="pagination" begin="${beginPagination}" end="${endPagination}">
+									<li class="${pagination eq page ? 'active ': ''}">
+										<a href="${currentUrl}page=${pagination}">${pagination}</a>
+									</li>
+								</c:forEach>
+								<c:if test="${page < maxPage}">
+								<li><a href="${currentUrl}page=${page+1}"><i class="fa fa-angle-right"></i></a></li>
+								</c:if>
 							</ul>
 						</div>
 						<!-- /store bottom filter -->
@@ -243,6 +308,7 @@
 			<!-- /container -->
 		</div>
 		<!-- /SECTION -->
+	<%@ include file="footer.jsp"%> 
 	<%@ include file="generalJS.jsp"%> 
 </body>
 </html>

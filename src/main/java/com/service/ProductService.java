@@ -12,6 +12,8 @@ public interface ProductService {
 
 	List<Product> getProductsByQuery(String query, int limit, int offset);
 
+	int countProductsByQuery(String query, int limit, int offset);
+
 	void deleteProduct(int productId);
 	
 	void addProduct(Product product);

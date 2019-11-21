@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%@ page isELIgnored="false"%>
 <!-- HEADER -->
 <header>
@@ -50,16 +51,16 @@
 				<!-- SEARCH BAR -->
 				<div class="col-md-6">
 					<div class="header-search">
-						<form>
-							<select class="input-select">
-								<option value="All">All Categories</option>
+						<form id="search-form">
+							<select id='search-option' class="input-select">
+								<option value="All">Tất cả</option>
 								<option value="Laptop">Laptop</option>
 								<option value="Smartphone">Smartphone</option>
 								<option value="Tablet">Tablet</option>
-								<option value="Accessory">Accessory</option>
+								<option value="Accessory">Phụ kiện</option>
 							</select>
-							<input class="input" placeholder="Search here">
-							<button class="search-btn">Search</button>
+							<input id="search-input" class="input" placeholder="Tìm kiếm sản phẩm">
+							<button id="search-btn" class="search-btn">Tìm kiếm</button>
 						</form>
 					</div>
 				</div>
@@ -151,12 +152,12 @@
 		<div id="responsive-nav">
 			<!-- NAV -->
 			<ul class="main-nav nav navbar-nav">
-				<li class="active"><a href="/products">Tất cả sản phẩm</a></li>
-				<li><a href="#">Laptops</a></li>
-				<li><a href="#">Smartphones</a></li>
-				<li><a href="#">Tablets</a></li>
-				<li><a href="#">Cameras</a></li>
-				<li><a href="#">Phụ kiện</a></li>
+				<li class="${pageOptions eq 'all' ? 'active ': ''}"><a href="/products">Tất cả sản phẩm</a></li>
+				<li class="${pageOptions eq 'laptops' ? 'active ': ''}"><a href="#">Laptops</a></li>
+				<li class="${pageOptions eq 'smartphones' ? 'active ': ''}"><a href="#">Smartphones</a></li>
+				<li class="${pageOptions eq 'tablets' ? 'active ': ''}"><a href="#">Tablets</a></li>
+				<li class="${pageOptions eq 'cameras' ? 'active ': ''}"><a href="#">Cameras</a></li>
+				<li class="${pageOptions eq 'accessories' ? 'active ': ''}"><a href="#">Phụ kiện</a></li>
 			</ul>
 			<!-- /NAV -->
 		</div>
@@ -165,9 +166,11 @@
 	<!-- /container -->
 </nav>
 <!-- /NAVIGATION -->
-<script src="/resource/js/jquery.min.js"></script>
-<script src="/resource/js/bootstrap.min.js"></script>
-<script src="/resource/js/slick.min.js"></script>
-<script src="/resource/js/nouislider.min.js"></script>
-<script src="/resource/js/jquery.zoom.min.js"></script>
-<script src="/resource/js/main.js"></script>
+<%@ include file="generalJS.jsp"%>
+<script type="text/javascript">
+	$("#search-form").submit(async function(e) {
+		e.preventDefault();
+		var searchVal = await $("#search-input").val();
+		window.location.href = "/products?search=" + searchVal;
+	})
+</script>

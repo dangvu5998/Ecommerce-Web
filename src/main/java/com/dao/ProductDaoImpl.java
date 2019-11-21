@@ -90,4 +90,11 @@ public class ProductDaoImpl implements ProductDao {
 		return products;
 	}
 
+	public int countProductsByQuery(String query, int limit, int offset) {
+		Session session = sessionFactory.openSession();
+		query = "SELECT count(*) FROM Product " + query;
+		Query querySession = session.createQuery(query);
+		int productsCount = ((Long) querySession.uniqueResult()).intValue();
+		return productsCount;
+	}
 }
