@@ -78,4 +78,10 @@ public class HomeController {
 		return "login";
 
 	}
+
+	@RequestMapping(value = "/checkout")
+	public String getCheckout() {
+		return "checkout";
+	}
+
 }

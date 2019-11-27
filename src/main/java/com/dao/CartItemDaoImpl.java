@@ -34,13 +34,20 @@ public class CartItemDaoImpl implements CartItemDao {
 		} catch (HibernateException e) {
 			session = sessionFactory.openSession();
 		}
+		// Session session = sessionFactory.openSession();
 		session.saveOrUpdate(cartItem);
 		session.flush();
 		session.close();
 	}
 
 	public void removeCartItem(int CartItemId) {
-		Session session = sessionFactory.openSession();
+		Session session;
+		try {
+			session = sessionFactory.getCurrentSession();
+		} catch (HibernateException e) {
+			session = sessionFactory.openSession();
+		}
+		// Session session = sessionFactory.openSession();
 		CartItem cartItem = (CartItem) session.get(CartItem.class, CartItemId);
 		session.delete(cartItem);
 		Cart cart = cartItem.getCart();

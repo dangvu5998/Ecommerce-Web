@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.model.Cart;
 import com.model.Customer;
-import com.service.CartService;
 import com.service.CustomerService;
 
 public class GetCurrentCart extends HandlerInterceptorAdapter {
@@ -28,22 +27,8 @@ public class GetCurrentCart extends HandlerInterceptorAdapter {
 		String emailId = principal.getName();
 		Customer customer = customerService.getCustomerByEmailId(emailId);
 		Cart cart = customer.getCart();
-		request.setAttribute("test", "hello");
 		request.setAttribute("cart", cart);
-		System.out.println("CART");
-		System.out.println(cart);
-		System.out.println(cart.getTotalPrice());
-		System.out.println(cart.getCartItem().size());
 		return true;
-	}
-
-	@Override
-	public void postHandle(HttpServletRequest request,
-			HttpServletResponse response, Object handler,
-			ModelAndView modelAndView) throws Exception {
-		System.out.println("Request URL::" + request.getRequestURL().toString()
-				+ " Sent to Handler :: Current Time=" + System.currentTimeMillis());
-		//we can add attributes in the modelAndView and use that in the view page
 	}
 
 	@Override

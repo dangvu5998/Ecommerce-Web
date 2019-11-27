@@ -72,14 +72,15 @@
 						<security:authorize access="hasRole('ROLE_USER')">
 						<div class="dropdown">
 							<c:set var="cart" value="${pageContext.request.getAttribute('cart')}"/>
+							<c:set var="cartItems" value="${cart.getCartItem()}" />
 							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" href="/cart">
 								<i class="fa fa-shopping-cart"></i>
 								<span>Giỏ hàng</span>
-								<div class="qty">${cart.getCartItem().size()}</div>
+								<div class="qty">${cartItems.size()}</div>
 							</a>
 							<div class="cart-dropdown">
 								<div class="cart-list">
-									<c:forEach var="cartItem" items="${cart.getCartItem()}">
+									<c:forEach var="cartItem" items="${cartItems}">
 									<c:set var="product" value="${cartItem.product}"/>
 									<div class="product-widget">
 										<div class="product-img">
@@ -99,7 +100,7 @@
 								</div>
 								<div class="cart-btns">
 									<a href="#">Xem giỏ hàng</a>
-									<a href="#">Checkout <i class="fa fa-arrow-circle-right"></i></a>
+									<a href="/checkout">Đặt hàng <i class="fa fa-arrow-circle-right"></i></a>
 								</div>
 							</div>
 						</div>

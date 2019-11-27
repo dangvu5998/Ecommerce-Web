@@ -24,7 +24,7 @@ public class CartItemServiceImpl implements CartItemService {
 		this.cartItemDao = cartItemDao;
 	}
 
-	public void addCartItem(CartItem cartItem) {
+	synchronized public void addCartItem(CartItem cartItem) {
 		cartItemDao.addCartItem(cartItem);
 		cartDao.update(cartItem.getCart());
 	}

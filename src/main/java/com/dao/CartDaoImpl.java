@@ -31,10 +31,14 @@ public class CartDaoImpl implements CartDao {
 	}
 
 	public Cart getCartByCartId(int CartId) {
-		Session session = sessionFactory.openSession();
+		Session session;
+		try {
+			session = sessionFactory.getCurrentSession();
+		} catch (HibernateException e) {
+			session = sessionFactory.openSession();
+		}
+		// Session session = sessionFactory.openSession();
 		Cart cart = (Cart) session.get(Cart.class, CartId);
-		// System.out.println(cart.getCartId() + " " + cart.getCartItem());
-		System.out.println(cart);
 		session.close();
 		return cart;
 
@@ -51,20 +55,20 @@ public class CartDaoImpl implements CartDao {
 
 	public void update(Cart cart) {
 
+		int cartId = cart.getCartId();
+		double grandTotal = customerOrderService.getCustomerOrderGrandTotal(cartId);
+		cart.setTotalPrice(grandTotal);
+
+		// Session session = sessionFactory.openSession();
+
 		Session session;
 		try {
 			session = sessionFactory.getCurrentSession();
 		} catch (HibernateException e) {
 			session = sessionFactory.openSession();
 		}
-		int cartId = cart.getCartId();
-		double grandTotal = customerOrderService.getCustomerOrderGrandTotal(cartId);
-		cart.setTotalPrice(grandTotal);
-
-		// Session session = sessionFactory.getCurrentSession();
-
-		// session.update(cart);
 		session.merge(cart);
+		// session.saveOrUpdate(cart);
 		session.flush();
 		session.close();
 	}

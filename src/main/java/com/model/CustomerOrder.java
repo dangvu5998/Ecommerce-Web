@@ -21,6 +21,8 @@ public class CustomerOrder implements Serializable {
 	private int customerOrderId;
 
 	private String address;
+
+	private String note;
 	
 	@OneToOne
 	@JoinColumn(name = "cartId")
@@ -60,5 +62,13 @@ public class CustomerOrder implements Serializable {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public void setNote(String note) {
+		this.note = note;
+	}
+
+	public String getNote() {
+		return note;
 	}
 }
