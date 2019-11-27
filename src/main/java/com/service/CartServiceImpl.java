@@ -16,6 +16,10 @@ public class CartServiceImpl implements CartService {
 		return cartDao;
 	}
 
+	public void updateCart(Cart cart) {
+		cartDao.update(cart);
+	}
+
 	public void setCartDao(CartDao cartDao) {
 		this.cartDao = cartDao;
 	}

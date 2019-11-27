@@ -17,7 +17,6 @@
 			</ul>
 			<ul class="header-links pull-right">
 				<li><a href="#"><i class="fa fa-dollar"></i> VND</a></li>
-				<!-- <li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li> -->
 				<c:choose>
 				<c:when test="${!empty pageContext.request.userPrincipal.name}">
 					<li><a href="/"><i class="fa fa-user-o"></i> ${pageContext.request.userPrincipal.name}</a></li>
@@ -69,55 +68,38 @@
 				<!-- ACCOUNT -->
 				<div class="col-md-3 clearfix">
 					<div class="header-ctn">
-						<!-- Wishlist -->
-						<!-- <div>
-							<a href="#">
-								<i class="fa fa-heart-o"></i>
-								<span>Wishlist</span>
-								<div class="qty">2</div>
-							</a>
-						</div> -->
-						<!-- /Wishlist -->
-
 						<!-- Cart -->
 						<security:authorize access="hasRole('ROLE_USER')">
 						<div class="dropdown">
+							<c:set var="cart" value="${pageContext.request.getAttribute('cart')}"/>
 							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" href="/cart">
 								<i class="fa fa-shopping-cart"></i>
 								<span>Giỏ hàng</span>
-								<div class="qty">3</div>
+								<div class="qty">${cart.getCartItem().size()}</div>
 							</a>
 							<div class="cart-dropdown">
 								<div class="cart-list">
+									<c:forEach var="cartItem" items="${cart.getCartItem()}">
+									<c:set var="product" value="${cartItem.product}"/>
 									<div class="product-widget">
 										<div class="product-img">
-											<img src="/resource/images/product01.png" alt="">
+											<img src="/resource/images/products/${product.productId}.jpg" alt="product">
 										</div>
 										<div class="product-body">
-											<h3 class="product-name"><a href="#">product name goes here</a></h3>
-											<h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
+											<h3 class="product-name"><a href="/products/${product.productId}">${product.productName}</a></h3>
+											<h4 class="product-price"><span class="qty">${cartItem.quality}x</span>${product.productPrice}</h4>
 										</div>
 										<button class="delete"><i class="fa fa-close"></i></button>
 									</div>
-
-									<div class="product-widget">
-										<div class="product-img">
-											<img src="/resource/images/product02.png" alt="">
-										</div>
-										<div class="product-body">
-											<h3 class="product-name"><a href="#">product name goes here</a></h3>
-											<h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
-										</div>
-										<button class="delete"><i class="fa fa-close"></i></button>
-									</div>
+									</c:forEach>
 								</div>
 								<div class="cart-summary">
-									<small>3 Item(s) selected</small>
-									<h5>SUBTOTAL: $2940.00</h5>
+									<small>${cart.getCartItem().size()} sản phẩm được chọn</small>
+									<h5>Tổng tiền: ${cart.totalPrice}</h5>
 								</div>
 								<div class="cart-btns">
-									<a href="#">View Cart</a>
-									<a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
+									<a href="#">Xem giỏ hàng</a>
+									<a href="#">Checkout <i class="fa fa-arrow-circle-right"></i></a>
 								</div>
 							</div>
 						</div>
@@ -152,12 +134,22 @@
 		<div id="responsive-nav">
 			<!-- NAV -->
 			<ul class="main-nav nav navbar-nav">
-				<li class="${pageOptions eq 'all' ? 'active ': ''}"><a href="/products">Tất cả sản phẩm</a></li>
-				<li class="${pageOptions eq 'laptops' ? 'active ': ''}"><a href="#">Laptops</a></li>
-				<li class="${pageOptions eq 'smartphones' ? 'active ': ''}"><a href="#">Smartphones</a></li>
-				<li class="${pageOptions eq 'tablets' ? 'active ': ''}"><a href="#">Tablets</a></li>
-				<li class="${pageOptions eq 'cameras' ? 'active ': ''}"><a href="#">Cameras</a></li>
-				<li class="${pageOptions eq 'accessories' ? 'active ': ''}"><a href="#">Phụ kiện</a></li>
+				<li class="${pageOptions eq 'list' ? 'active ': ''}"><a href="/products">Tất cả sản phẩm</a></li>
+				<li class="${pageOptions eq 'listlaptop' ? 'active ': ''}">
+					<a href="/products?category=laptop">Laptops</a>
+				</li>
+				<li class="${pageOptions eq 'listsmartphone' ? 'active ': ''}">
+					<a href="/products?category=smartphone">Smartphones</a>
+				</li>
+				<li class="${pageOptions eq 'listtablet' ? 'active ': ''}">
+					<a href="/products?category=tablet">Tablets</a>
+				</li>
+				<li class="${pageOptions eq 'listcamera' ? 'active ': ''}">
+					<a href="/products?category=camera">Cameras</a>
+				</li>
+				<li class="${pageOptions eq 'listaccessory' ? 'active ': ''}">
+					<a href="/products?category=accessory">Phụ kiện</a>
+				</li>
 			</ul>
 			<!-- /NAV -->
 		</div>

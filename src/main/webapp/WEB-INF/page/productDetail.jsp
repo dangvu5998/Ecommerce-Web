@@ -17,9 +17,9 @@
 			<div class="row">
 				<div class="col-md-12">
 					<ul class="breadcrumb-tree">
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Tất cả sản phẩm</a></li>
-						<li><a href="#">${product.productCategory}</a></li>
+						<li><a href="/">Home</a></li>
+						<li><a href="/products">Tất cả sản phẩm</a></li>
+						<li><a href="/products?category=${product.productCategory}">${product.productCategory}</a></li>
 						<li class="active">${product.productName}</li>
 					</ul>
 				</div>

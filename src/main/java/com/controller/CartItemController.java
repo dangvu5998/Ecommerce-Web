@@ -73,7 +73,7 @@ public class CartItemController {
 	public void addCartItem(@PathVariable(value = "productId") int productId) {
 		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String emailId = user.getUsername();
-		Customer customer = customerService.getCustomerByemailId(emailId);
+		Customer customer = customerService.getCustomerByEmailId(emailId);
 		Cart cart = customer.getCart();
 		System.out.println(cart);
 		List<CartItem> cartItems = cart.getCartItem();

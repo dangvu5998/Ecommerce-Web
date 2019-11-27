@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import org.hibernate.HibernateException;
 
 import com.model.Cart;
 import com.model.CartItem;
@@ -27,7 +28,12 @@ public class CartItemDaoImpl implements CartItemDao {
 	}
 
 	public void addCartItem(CartItem cartItem) {
-		Session session = sessionFactory.openSession();
+		Session session;
+		try {
+			session = sessionFactory.getCurrentSession();
+		} catch (HibernateException e) {
+			session = sessionFactory.openSession();
+		}
 		session.saveOrUpdate(cartItem);
 		session.flush();
 		session.close();

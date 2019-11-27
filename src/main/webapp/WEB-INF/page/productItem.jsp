@@ -8,7 +8,7 @@
 	<div class="product">
 		<div class="product-img">
 			<span class="product-img-helper"></span>
-			<img src="/resource/images/products/${param.id}.jpg" alt="${param.name}">
+			<img class="product-img-img" src="/resource/images/products/${param.id}.jpg" alt="${param.name}">
 			<div class="product-label">
 				<span class="sale">-30%</span>
 				<span class="new">NEW</span>

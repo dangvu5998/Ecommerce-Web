@@ -2,6 +2,7 @@ package com.controller;
 
 import java.util.List;
 import javax.validation.Valid;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,14 +36,10 @@ public class HomeController {
 	}
 
 	@RequestMapping("/")
-	public ModelAndView home() {
-		List<Product> products = productService.getAllProducts();
+	public ModelAndView home(HttpServletRequest request) {
+		System.out.println(request.getUserPrincipal());
+		List<Product> products = productService.getProductsByQuery("", 10, 0);
 		return new ModelAndView("home", "products", products);
-	}
-
-	@RequestMapping("/hello")
-	public ModelAndView sayHello() {
-		return new ModelAndView("hello", "hello", "Hello Mr.Ismail");
 	}
 
 	@RequestMapping("/login")

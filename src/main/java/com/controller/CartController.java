@@ -43,7 +43,7 @@ public class CartController {
 	public String getCartId(Model model){
 		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String emailId = user.getUsername();
-		Customer customer = customerService.getCustomerByemailId(emailId);
+		Customer customer = customerService.getCustomerByEmailId(emailId);
 		model.addAttribute("cartId", customer.getCart().getCartId());
 		return "cart";
 	}

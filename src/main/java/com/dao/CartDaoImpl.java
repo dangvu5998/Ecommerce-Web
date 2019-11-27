@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import org.hibernate.HibernateException;
 
 import com.model.Cart;
 import com.service.CustomerOrderService;
@@ -50,12 +51,20 @@ public class CartDaoImpl implements CartDao {
 
 	public void update(Cart cart) {
 
+		Session session;
+		try {
+			session = sessionFactory.getCurrentSession();
+		} catch (HibernateException e) {
+			session = sessionFactory.openSession();
+		}
 		int cartId = cart.getCartId();
 		double grandTotal = customerOrderService.getCustomerOrderGrandTotal(cartId);
 		cart.setTotalPrice(grandTotal);
 
-		Session session = sessionFactory.openSession();
-		session.saveOrUpdate(cart);
+		// Session session = sessionFactory.getCurrentSession();
+
+		// session.update(cart);
+		session.merge(cart);
 		session.flush();
 		session.close();
 	}

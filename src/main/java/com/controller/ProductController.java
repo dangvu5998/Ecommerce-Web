@@ -9,6 +9,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.ArrayList;
 
 import javax.validation.Valid;
 
@@ -78,21 +79,36 @@ public class ProductController {
 	// this is used for getting the product by query
 	@RequestMapping("products")
 	public ModelAndView getProducts(@RequestParam(defaultValue = "1") int page,
-		@RequestParam(required = false) String search
+		@RequestParam(required = false) String search,
+		@RequestParam(required = false) String category
 	) {
 		final int NUMBER_PRODUCTS_PER_PAGE = 9;
 		final int PRODUCT_OFFSET = NUMBER_PRODUCTS_PER_PAGE * (page - 1);
 		String currentUrl = "/products?";
-		String pageOptions = "all";
-		String query = "";
+		String pageOptions = "list";
+		ArrayList<String> queryList = new ArrayList<String>();
 		if (search != null) {
-			pageOptions = "";
-			query += "name LIKE '%" + search + "%'";
+			pageOptions += "search";
+			String querySearch = "(name LIKE '%" + search + "%')";
 			currentUrl += "search=" + search + "&";
+			queryList.add(querySearch);
 		}
+		if (category != null) {
+			pageOptions += category;
+			String[] categories = category.split(",");
+			ArrayList<String> categoryQueryList = new ArrayList<String>();
+			for (String categoryElement: categories) {
+				categoryQueryList.add("category = '" + categoryElement + "'");
+			}
+			String queryCategory = "(" + String.join(" OR ", categoryQueryList) + ")";
+			queryList.add(queryCategory);
+			currentUrl += "category=" + category + "&";
+		}
+		String query = String.join(" AND ", queryList);
 		if (query.length() > 0) {
 			query = "WHERE " + query;
 		}
+		System.out.println("pageOptions:" + pageOptions);
 		List<Product> products = productService.getProductsByQuery(query, NUMBER_PRODUCTS_PER_PAGE, PRODUCT_OFFSET);
 		int productsCount = productService.countProductsByQuery(query, NUMBER_PRODUCTS_PER_PAGE, PRODUCT_OFFSET);
 		Map<String, Object> model = new HashMap<String, Object>();

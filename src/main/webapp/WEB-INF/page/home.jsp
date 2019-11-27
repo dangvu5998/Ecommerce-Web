@@ -95,7 +95,7 @@
 									<c:forEach items="${products}" var="prod">
 									<div class="product">
 										<div class="product-img">
-											<img src="/resource/images/products/${prod.productId}.jpg" height="250" alt="product">
+											<img width="210" src="/resource/images/products/${prod.productId}.jpg" alt="product">
 											<div class="product-label">
 												<span class="sale">-30%</span>
 												<span class="new">NEW</span>
@@ -220,7 +220,7 @@
 									<c:forEach items="${products}" var="prod">
 									<div class="product">
 										<div class="product-img">
-											<img src="/resource/images/products/${prod.productId}.jpg" height="250" alt="product">
+											<img width="210" src="/resource/images/products/${prod.productId}.jpg" height="250" alt="product">
 											<div class="product-label">
 												<span class="sale">-30%</span>
 												<span class="new">NEW</span>

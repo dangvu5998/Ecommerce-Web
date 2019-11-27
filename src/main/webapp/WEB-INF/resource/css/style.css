@@ -878,7 +878,7 @@ textarea.input {
   vertical-align: middle;
 }
 
-.product .product-img>img {
+.product .product-img .product-img-img {
   text-align: center;
   width: 100%;
   vertical-align: middle;
