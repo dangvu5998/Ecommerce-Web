@@ -5,9 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.model.Cart;
-import com.model.Customer;
-import com.model.CustomerOrder;
+import com.entity.Cart;
+import com.entity.Customer;
+import com.entity.CustomerOrder;
 import com.service.CartService;
 import com.service.CustomerOrderService;
 

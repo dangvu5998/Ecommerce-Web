@@ -5,7 +5,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.model.Queries;
+import com.entity.Queries;
 
 @Repository
 public class QueriesDaoImpl implements QueriesDao  {

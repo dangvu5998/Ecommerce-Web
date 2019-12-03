@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dao.UserDao;
-import com.model.User;
+import com.entity.User;
 
 @Service
 public class UserServiceImpl implements UserService {

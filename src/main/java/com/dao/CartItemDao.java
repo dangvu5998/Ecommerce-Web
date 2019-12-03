@@ -1,7 +1,7 @@
 package com.dao;
 
-import com.model.Cart;
-import com.model.CartItem;
+import com.entity.Cart;
+import com.entity.CartItem;
 
 public interface CartItemDao {
 

@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.model.Customer;
-import com.model.User;
+import com.entity.Customer;
+import com.entity.User;
 import com.service.CustomerService;
 
 @Controller

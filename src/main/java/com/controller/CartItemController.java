@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.model.Cart;
-import com.model.CartItem;
-import com.model.Customer;
-import com.model.Product;
+import com.entity.Cart;
+import com.entity.CartItem;
+import com.entity.Customer;
+import com.entity.Product;
 import com.service.CartItemService;
 import com.service.CartService;
 import com.service.CustomerService;

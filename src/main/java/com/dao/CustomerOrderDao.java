@@ -1,6 +1,6 @@
 package com.dao;
 
-import com.model.CustomerOrder;
+import com.entity.CustomerOrder;
 
 public interface CustomerOrderDao {
 

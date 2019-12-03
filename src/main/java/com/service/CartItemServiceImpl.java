@@ -5,8 +5,8 @@ import org.springframework.stereotype.Service;
 
 import com.dao.CartItemDao;
 import com.dao.CartDao;
-import com.model.Cart;
-import com.model.CartItem;
+import com.entity.Cart;
+import com.entity.CartItem;
 
 @Service
 public class CartItemServiceImpl implements CartItemService {

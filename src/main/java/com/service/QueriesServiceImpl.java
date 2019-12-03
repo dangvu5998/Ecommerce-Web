@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dao.QueriesDao;
-import com.model.Queries;
+import com.entity.Queries;
 
 @Service
 public class QueriesServiceImpl implements QueriesService {

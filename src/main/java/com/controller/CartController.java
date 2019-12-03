@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.model.Cart;
-import com.model.Customer;
+import com.entity.Cart;
+import com.entity.Customer;
 import com.service.CartService;
 import com.service.CustomerService;
 

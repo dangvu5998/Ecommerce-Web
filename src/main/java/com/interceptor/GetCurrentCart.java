@@ -4,12 +4,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.security.Principal;
 
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.model.Cart;
-import com.model.Customer;
+import com.entity.Cart;
+import com.entity.Customer;
 import com.service.CustomerService;
 
 public class GetCurrentCart extends HandlerInterceptorAdapter {

@@ -1,6 +1,6 @@
 package com.dao;
 
-import com.model.Queries;
+import com.entity.Queries;
 
 public interface QueriesDao {
 

@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dao.CustomerOrderDao;
-import com.model.Cart;
-import com.model.CartItem;
-import com.model.CustomerOrder;
+import com.entity.Cart;
+import com.entity.CartItem;
+import com.entity.CustomerOrder;
 
 @Service
 public class CustomerOrderServiceImpl implements CustomerOrderService {

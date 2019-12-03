@@ -2,7 +2,7 @@ package com.dao;
 
 import java.io.IOException;
 
-import com.model.Cart;
+import com.entity.Cart;
 
 public interface CartDao {
 

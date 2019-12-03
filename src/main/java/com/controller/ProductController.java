@@ -29,7 +29,7 @@ import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.model.Product;
+import com.entity.Product;
 import com.service.ProductService;
 
 @Controller

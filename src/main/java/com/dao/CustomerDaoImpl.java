@@ -9,10 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.model.Authorities;
-import com.model.Cart;
-import com.model.Customer;
-import com.model.User;
+import com.entity.Authorities;
+import com.entity.Cart;
+import com.entity.Customer;
+import com.entity.User;
 
 @Repository
 @Transactional

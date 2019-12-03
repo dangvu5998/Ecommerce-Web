@@ -1,6 +1,6 @@
 package com.service;
 
-import com.model.Cart;
+import com.entity.Cart;
 
 public interface CartService {
 

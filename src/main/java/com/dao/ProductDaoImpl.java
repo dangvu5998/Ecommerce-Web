@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 
-import com.model.Product;
+import com.entity.Product;
 
 @Repository(value = "productDao")
 @Transactional

@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.model.Queries;
+import com.entity.Queries;
 import com.service.QueriesService;
-import com.model.Product;
+import com.entity.Product;
 import com.service.ProductService;
 
 @Controller

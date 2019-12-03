@@ -1,6 +1,6 @@
 package com.service;
 
-import com.model.CustomerOrder;
+import com.entity.CustomerOrder;
 
 public interface CustomerOrderService {
 

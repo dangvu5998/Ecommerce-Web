@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dao.CartDao;
-import com.model.Cart;
+import com.entity.Cart;
 
 @Service
 public class CartServiceImpl implements CartService {

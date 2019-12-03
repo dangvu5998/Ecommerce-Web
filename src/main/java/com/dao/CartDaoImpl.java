@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import org.hibernate.HibernateException;
 
-import com.model.Cart;
+import com.entity.Cart;
 import com.service.CustomerOrderService;
 
 @Repository
