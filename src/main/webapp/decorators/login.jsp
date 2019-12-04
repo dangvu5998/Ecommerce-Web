@@ -1,66 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta charset="utf-8" />
-    <title><dec:title default="Đăng nhập" /></title>
-    <meta name="description" content="User login page" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <link href="<c:url value='/template/admin/css/bootstrap.min.css' />" rel="stylesheet" type="text/css" media="all"/>
-    <link href="<c:url value='/template/admin/font-awesome/4.5.0/css/font-awesome.min.css' />" rel="stylesheet"
-          type="text/css" media="all"/>
-    <link href="<c:url value='/template/admin/css/fonts.googleapis.com.css' />" rel="stylesheet" type="text/css"
-          media="all"/>
-    <link href="<c:url value='/template/admin/css/ace.min.css' />" class="ace-main-stylesheet" id="main-ace-style" rel="stylesheet" type="text/css" media="all"/>
-    <link href="<c:url value='/template/admin/css/ace-rtl.min.css' />" rel="stylesheet" type="text/css" media="all"/>
+    <title>Đăng nhập</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="<c:url value='/template/admin/css/bootstrap.min.css' />" rel="stylesheet"/>
+    <!-- MetisMenu CSS -->
+    <link href="<c:url value='/template/admin/css/metisMenu.min.css' />" rel="stylesheet"/>
+    <!-- Custom CSS -->
+    <link href="<c:url value='/template/admin/css/startmin.css' />" rel="stylesheet"/>
+    <!-- Custom Fonts -->
+    <link href="<c:url value='/template/admin/css/font-awesome.min.css' />" rel="stylesheet" type="text/css"/>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <![endif]-->
 </head>
-<body class="login-layout">
-<div class="main-container">
+<body>
+
+<div class="container">
     <dec:body/>
 </div>
 
-<script type="text/javascript" src="<c:url value='/template/admin/js/jquery-2.1.4.min.js' />"></script>
-<!-- inline scripts related to this page -->
-<script type="text/javascript">
-    jQuery(function($) {
-        $(document).on('click', '.toolbar a[data-target]', function(e) {
-            e.preventDefault();
-            var target = $(this).data('target');
-            $('.widget-box.visible').removeClass('visible');//hide others
-            $(target).addClass('visible');//show target
-        });
-    });
+<script src="<c:url value='/template/admin/js/jquery.min.js' />"></script>
+<script src="<c:url value='/template/admin/js/bootstrap.min.js' />"></script>
+<script src="<c:url value='/template/admin/js/metisMenu.min.js' />"></script>
+<script src="<c:url value='/template/admin/js/startmin.js' />"></script>
 
-
-
-    //you don't need this, just used for changing background
-    jQuery(function($) {
-        $('#btn-login-dark').on('click', function(e) {
-            $('body').attr('class', 'login-layout');
-            $('#id-text2').attr('class', 'white');
-            $('#id-company-text').attr('class', 'blue');
-
-            e.preventDefault();
-        });
-        $('#btn-login-light').on('click', function(e) {
-            $('body').attr('class', 'login-layout light-login');
-            $('#id-text2').attr('class', 'grey');
-            $('#id-company-text').attr('class', 'blue');
-
-            e.preventDefault();
-        });
-        $('#btn-login-blur').on('click', function(e) {
-            $('body').attr('class', 'login-layout blur-login');
-            $('#id-text2').attr('class', 'white');
-            $('#id-company-text').attr('class', 'light-blue');
-
-            e.preventDefault();
-        });
-
-    });
-</script>
 </body>
 </html>
+

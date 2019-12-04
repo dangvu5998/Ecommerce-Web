@@ -1,237 +1,107 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/common/taglib.jsp" %>
 <!-- Sidebar -->
-<script type="text/javascript">
-    try {
-        ace.settings.loadState('main-container')
-    } catch (e) {
-    }
-</script>
-
-<div id="sidebar" class="sidebar responsive ace-save-state">
-    <script type="text/javascript">
-        try {
-            ace.settings.loadState('sidebar')
-        } catch (e) {
-        }
-    </script>
-
-    <div class="sidebar-shortcuts" id="sidebar-shortcuts">
-        <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-            <button class="btn btn-success">
-                <i class="ace-icon fa fa-signal"></i>
-            </button>
-
-            <button class="btn btn-info">
-                <i class="ace-icon fa fa-pencil"></i>
-            </button>
-
-            <button class="btn btn-warning">
-                <i class="ace-icon fa fa-users"></i>
-            </button>
-
-            <button class="btn btn-danger">
-                <i class="ace-icon fa fa-cogs"></i>
-            </button>
-        </div>
-
-        <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
-            <span class="btn btn-success"></span>
-
-            <span class="btn btn-info"></span>
-
-            <span class="btn btn-warning"></span>
-
-            <span class="btn btn-danger"></span>
-        </div>
-    </div><!-- /.sidebar-shortcuts -->
-
-    <ul class="nav nav-list">
-        <li class="active">
-            <a href='<c:url value="/admin-home"/>'>
-                <i class="menu-icon fa fa-tachometer"></i>
-                <span class="menu-text"> Dashboard </span>
-            </a>
-
-            <b class="arrow"></b>
-        </li>
-
-        <li class="">
-            <a href="#" class="dropdown-toggle">
-                <i class="menu-icon fa fa-list"></i>
-                <span class="menu-text">
-								Khách hàng
-							</span>
-            </a>
-
-        </li>
-
-        <li class="">
-            <a href="#" class="dropdown-toggle">
-                <i class="menu-icon fa fa-list"></i>
-                <span class="menu-text">
-								Sản phẩm
-							</span>
-            </a>
-
-        </li>
-
-        <li class="">
-            <a href="#" class="dropdown-toggle">
-                <i class="menu-icon fa fa-list"></i>
-                <span class="menu-text">
-								Giỏ hàng
-							</span>
-            </a>
-
-        </li>
-
-        <%--        <li class="">--%>
-        <%--            <a href="#" class="dropdown-toggle">--%>
-        <%--                <i class="menu-icon fa fa-pencil-square-o"></i>--%>
-        <%--                <span class="menu-text"> Forms </span>--%>
-
-        <%--                <b class="arrow fa fa-angle-down"></b>--%>
-        <%--            </a>--%>
-
-        <%--            <b class="arrow"></b>--%>
-
-        <%--            <ul class="submenu">--%>
-        <%--                <li class="">--%>
-        <%--                    <a href="form-elements.html">--%>
-        <%--                        <i class="menu-icon fa fa-caret-right"></i>--%>
-        <%--                        Form Elements--%>
-        <%--                    </a>--%>
-
-        <%--                    <b class="arrow"></b>--%>
-        <%--                </li>--%>
-
-        <%--                <li class="">--%>
-        <%--                    <a href="form-elements-2.html">--%>
-        <%--                        <i class="menu-icon fa fa-caret-right"></i>--%>
-        <%--                        Form Elements 2--%>
-        <%--                    </a>--%>
-
-        <%--                    <b class="arrow"></b>--%>
-        <%--                </li>--%>
-
-        <%--                <li class="">--%>
-        <%--                    <a href="form-wizard.html">--%>
-        <%--                        <i class="menu-icon fa fa-caret-right"></i>--%>
-        <%--                        Wizard &amp; Validation--%>
-        <%--                    </a>--%>
-
-        <%--                    <b class="arrow"></b>--%>
-        <%--                </li>--%>
-
-        <%--                <li class="">--%>
-        <%--                    <a href="wysiwyg.html">--%>
-        <%--                        <i class="menu-icon fa fa-caret-right"></i>--%>
-        <%--                        Wysiwyg &amp; Markdown--%>
-        <%--                    </a>--%>
-
-        <%--                    <b class="arrow"></b>--%>
-        <%--                </li>--%>
-
-        <%--                <li class="">--%>
-        <%--                    <a href="dropzone.html">--%>
-        <%--                        <i class="menu-icon fa fa-caret-right"></i>--%>
-        <%--                        Dropzone File Upload--%>
-        <%--                    </a>--%>
-
-        <%--                    <b class="arrow"></b>--%>
-        <%--                </li>--%>
-        <%--            </ul>--%>
-        <%--        </li>--%>
-
-        <%--        <li class="">--%>
-        <%--            <a href="#" class="dropdown-toggle">--%>
-        <%--                <i class="menu-icon fa fa-tag"></i>--%>
-        <%--                <span class="menu-text"> More Pages </span>--%>
-
-        <%--                <b class="arrow fa fa-angle-down"></b>--%>
-        <%--            </a>--%>
-
-        <%--            <b class="arrow"></b>--%>
-
-        <%--            <ul class="submenu">--%>
-        <%--                <li class="">--%>
-        <%--                    <a href="profile.html">--%>
-        <%--                        <i class="menu-icon fa fa-caret-right"></i>--%>
-        <%--                        User Profile--%>
-        <%--                    </a>--%>
-
-        <%--                    <b class="arrow"></b>--%>
-        <%--                </li>--%>
-
-        <%--                <li class="">--%>
-        <%--                    <a href="inbox.html">--%>
-        <%--                        <i class="menu-icon fa fa-caret-right"></i>--%>
-        <%--                        Inbox--%>
-        <%--                    </a>--%>
-
-        <%--                    <b class="arrow"></b>--%>
-        <%--                </li>--%>
-
-        <%--                <li class="">--%>
-        <%--                    <a href="pricing.html">--%>
-        <%--                        <i class="menu-icon fa fa-caret-right"></i>--%>
-        <%--                        Pricing Tables--%>
-        <%--                    </a>--%>
-
-        <%--                    <b class="arrow"></b>--%>
-        <%--                </li>--%>
-
-        <%--                <li class="">--%>
-        <%--                    <a href="invoice.html">--%>
-        <%--                        <i class="menu-icon fa fa-caret-right"></i>--%>
-        <%--                        Invoice--%>
-        <%--                    </a>--%>
-
-        <%--                    <b class="arrow"></b>--%>
-        <%--                </li>--%>
-
-        <%--                <li class="">--%>
-        <%--                    <a href="timeline.html">--%>
-        <%--                        <i class="menu-icon fa fa-caret-right"></i>--%>
-        <%--                        Timeline--%>
-        <%--                    </a>--%>
-
-        <%--                    <b class="arrow"></b>--%>
-        <%--                </li>--%>
-
-        <%--                <li class="">--%>
-        <%--                    <a href="search.html">--%>
-        <%--                        <i class="menu-icon fa fa-caret-right"></i>--%>
-        <%--                        Search Results--%>
-        <%--                    </a>--%>
-
-        <%--                    <b class="arrow"></b>--%>
-        <%--                </li>--%>
-
-        <%--                <li class="">--%>
-        <%--                    <a href="email.html">--%>
-        <%--                        <i class="menu-icon fa fa-caret-right"></i>--%>
-        <%--                        Email Templates--%>
-        <%--                    </a>--%>
-
-        <%--                    <b class="arrow"></b>--%>
-        <%--                </li>--%>
-
-        <%--                <li class="">--%>
-        <%--                    <a href="login.html">--%>
-        <%--                        <i class="menu-icon fa fa-caret-right"></i>--%>
-        <%--                        Login &amp; Register--%>
-        <%--                    </a>--%>
-
-        <%--                    <b class="arrow"></b>--%>
-        <%--                </li>--%>
-        <%--            </ul>--%>
-        <%--        </li>--%>
-    </ul><!-- /.nav-list -->
-
-    <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
-        <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state"
-           data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+<div class="navbar-default sidebar" role="navigation">
+    <div class="sidebar-nav navbar-collapse">
+        <ul class="nav" id="side-menu">
+            <li class="sidebar-search">
+                <div class="input-group custom-search-form">
+                    <input type="text" class="form-control" placeholder="Search...">
+                    <span class="input-group-btn">
+                                        <button class="btn btn-primary" type="button">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                </span>
+                </div>
+                <!-- /input-group -->
+            </li>
+            <li>
+                <a href="index.html" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="flot.html">Flot Charts</a>
+                    </li>
+                    <li>
+                        <a href="morris.html">Morris.js Charts</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+            <li>
+                <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
+            </li>
+            <li>
+                <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="panels-wells.html">Panels and Wells</a>
+                    </li>
+                    <li>
+                        <a href="buttons.html">Buttons</a>
+                    </li>
+                    <li>
+                        <a href="notifications.html">Notifications</a>
+                    </li>
+                    <li>
+                        <a href="typography.html">Typography</a>
+                    </li>
+                    <li>
+                        <a href="icons.html"> Icons</a>
+                    </li>
+                    <li>
+                        <a href="grid.html">Grid</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="#">Second Level Item</a>
+                    </li>
+                    <li>
+                        <a href="#">Second Level Item</a>
+                    </li>
+                    <li>
+                        <a href="#">Third Level <span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                            <li>
+                                <a href="#">Third Level Item</a>
+                            </li>
+                            <li>
+                                <a href="#">Third Level Item</a>
+                            </li>
+                            <li>
+                                <a href="#">Third Level Item</a>
+                            </li>
+                            <li>
+                                <a href="#">Third Level Item</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-third-level -->
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="blank.html">Blank Page</a>
+                    </li>
+                    <li>
+                        <a href="login.html">Login Page</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+        </ul>
     </div>
 </div>

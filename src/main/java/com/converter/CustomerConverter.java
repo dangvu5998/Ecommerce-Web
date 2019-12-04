@@ -21,7 +21,6 @@ public class CustomerConverter implements BaseConverter<Customer, CustomerDTO> {
         customerDTO.setCustomerPhone(entity.getCustomerPhone());
         customerDTO.setFirstName(entity.getFirstName());
         customerDTO.setLastName(entity.getLastName());
-        customerDTO.setUserDTO(SecurityUtil.getPrincipal());
         return customerDTO;
     }
 
