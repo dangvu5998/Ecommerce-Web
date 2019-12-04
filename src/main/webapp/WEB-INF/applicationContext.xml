@@ -5,20 +5,18 @@
 
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:security="http://www.springframework.org/schema/c"
-       xmlns:webflow-config="http://www.springframework.org/schema/webflow-config"
 
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
     http://www.springframework.org/schema/context
-    http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/webflow-config http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd">
+    http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/webflow-config ">
 
     <!-- Activates scanning of @Repository and @Service and @Component -->
 
     <context:component-scan base-package="com" />
 
     <!-- database properties DataSource -->
-    <bean id="dataSource"
-          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:3306/java_ecommerce" />
         <property name="username" value="root" />
@@ -36,9 +34,8 @@
                 <!-- hibernate mapping to database automatically -->
                 <!-- when we use create-drop instead of update the table is created automatically
                     when the server runs after that it will drop when server stops -->
-                <!-- <prop key="hibernate.hbm2ddl.auto">update</prop>
-                <prop key="hibernate.hbm2ddl.auto">create</prop> -->
-
+<!--                <prop key="hibernate.hbm2ddl.auto">update</prop>-->
+<!--                <prop key="hibernate.hbm2ddl.auto">create</prop>-->
                 <!-- whether the query wants to show the data in console -->
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.format_sql">true</prop>
@@ -47,20 +44,20 @@
         </property>
 
         <!-- packages to scan for Entity Classes annotated Classes package -->
-        <property name="annotatedClasses">
-            <list>
-                <value>com.entity.Product</value>
-                <value>com.entity.Authorities</value>
-                <!-- <value>com.entity.BillingAddress</value> -->
-                <value>com.entity.Cart</value>
-                <value>com.entity.CartItem</value>
-                <value>com.entity.Customer</value>
-                <value>com.entity.CustomerOrder</value>
-                <!-- <value>com.entity.ShippingAddress</value> -->
-                <value>com.entity.User</value>
-                <value>com.entity.Queries</value>
-            </list>
-        </property>
+<!--        <property name="annotatedClasses">-->
+<!--            <list>-->
+<!--                <value>com.entity.Product</value>-->
+<!--                <value>com.entity.Authorities</value>-->
+<!--                &lt;!&ndash; <value>com.entity.BillingAddress</value> &ndash;&gt;-->
+<!--                <value>com.entity.Cart</value>-->
+<!--                <value>com.entity.CartItem</value>-->
+<!--                <value>com.entity.Customer</value>-->
+<!--                <value>com.entity.CustomerOrder</value>-->
+<!--                &lt;!&ndash; <value>com.entity.ShippingAddress</value> &ndash;&gt;-->
+<!--                <value>com.entity.User</value>-->
+<!--                <value>com.entity.Queries</value>-->
+<!--            </list>-->
+<!--        </property>-->
 
     </bean>
 
@@ -71,22 +68,5 @@
     <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
-
-
-    <webflow-config:flow-executor id="flowExecutor"
-                                  flow-registry="flowRegistry">
-    </webflow-config:flow-executor>
-
-    <webflow-config:flow-registry id="flowRegistry"
-                                  base-path="/WEB-INF/flow">
-    </webflow-config:flow-registry>
-    <bean id="flowHandleMapping"
-          class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
-        <property name="flowRegistry" ref="flowRegistry"></property>
-    </bean>
-    <bean id="flowHandlerAdapter" class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
-        <property name="flowExecutor" ref="flowExecutor"></property>
-    </bean>
-
 
 </beans>

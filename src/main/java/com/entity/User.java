@@ -1,13 +1,9 @@
 package com.entity;
 
 import java.io.Serializable;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import java.util.List;
+import javax.persistence.*;
+import javax.validation.constraints.Null;
 
 @Entity
 @Table(name = "user")
@@ -15,11 +11,20 @@ public class User implements Serializable {
 
 	private static final long serialVersionUID = 2681531852204068105L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int userId;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer userId;
+	private String fullName;
+	private String userName;
 	private String emailId;
 	private String password;
-	private boolean enabled;
+	private Integer enabled;
+
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(
+			name = "user_authorities",
+			joinColumns = @JoinColumn(name = "user_id"),
+			inverseJoinColumns = @JoinColumn(name = "authorities_id"))
+	List<Authorities> authorities;
 
 	@OneToOne(mappedBy = "user")
 	private Customer customer;
@@ -48,11 +53,11 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
-	public boolean isEnabled() {
+	public Integer isEnabled() {
 		return enabled;
 	}
 
-	public void setEnabled(boolean enabled) {
+	public void setEnabled(Integer enabled) {
 		this.enabled = enabled;
 	}
 
@@ -64,4 +69,31 @@ public class User implements Serializable {
 		this.emailId = emailId;
 	}
 
+	public String getFullName() {
+		return fullName;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+
+	public List<Authorities> getAuthorities() {
+		return authorities;
+	}
+
+	public void setAuthorities(List<Authorities> authorities) {
+		this.authorities = authorities;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 }

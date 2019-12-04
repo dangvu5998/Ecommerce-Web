@@ -1,7 +1,8 @@
-package com.service;
+package com.service.impl;
 
 import java.util.List;
 
+import com.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

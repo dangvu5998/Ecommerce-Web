@@ -1,7 +1,8 @@
-package com.dao;
+package com.dao.impl;
 
 import java.io.IOException;
 
+import com.dao.CartDao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

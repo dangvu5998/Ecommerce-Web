@@ -21,7 +21,7 @@ public class Cart implements Serializable {
     private static final long serialVersionUID = 8436097833452420298L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int cartId;
 
     @OneToOne
@@ -29,7 +29,7 @@ public class Cart implements Serializable {
     @JsonIgnore
     private Customer customer;
 
-    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<CartItem> cartItem;
 
     private double totalPrice;

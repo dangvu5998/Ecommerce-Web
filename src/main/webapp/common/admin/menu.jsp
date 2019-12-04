@@ -60,265 +60,30 @@
             <a href="#" class="dropdown-toggle">
                 <i class="menu-icon fa fa-list"></i>
                 <span class="menu-text">
-								Volatile Data
+								Khách hàng
 							</span>
-
-                <b class="arrow fa fa-angle-down"></b>
             </a>
 
-            <b class="arrow"></b>
-
-            <ul class="submenu">
-                <li class="">
-                    <a href="#" class="dropdown-toggle">
-                        <i class="menu-icon fa fa-caret-right"></i>
-
-                        Networks
-                        <b class="arrow fa fa-angle-down"></b>
-                    </a>
-
-                    <b class="arrow"></b>
-
-                    <ul class="submenu">
-                        <li class="">
-                            <a href='<c:url value="/admin-network-connection"/> '>
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Network Connection
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            <a href="two-menu-1.html">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Listening Port
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            <a href="two-menu-2.html">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Data Port
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            <a href="mobile-menu-1.html">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Routing table
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="">
-                    <a href="typography.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Process
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="elements.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        User Logon
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="buttons.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Clipboard Content
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="content-slider.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        OpenFile
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="treeview.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Service Information
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="jquery-ui.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Driver Information
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="nestable-list.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Key Logger
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="nestable-list.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Command History
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="nestable-list.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Swap File
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="nestable-list.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        File Permission
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <%--                <li class="">--%>
-                <%--                    <a href="#" class="dropdown-toggle">--%>
-                <%--                        <i class="menu-icon fa fa-caret-right"></i>--%>
-
-                <%--                        Command History--%>
-                <%--                        <b class="arrow fa fa-angle-down"></b>--%>
-                <%--                    </a>--%>
-
-                <%--                    <b class="arrow"></b>--%>
-
-                <%--                    <ul class="submenu">--%>
-                <%--                        <li class="">--%>
-                <%--                            <a href="#">--%>
-                <%--                                <i class="menu-icon fa fa-leaf green"></i>--%>
-                <%--                                Item #1--%>
-                <%--                            </a>--%>
-
-                <%--                            <b class="arrow"></b>--%>
-                <%--                        </li>--%>
-
-                <%--                        <li class="">--%>
-                <%--                            <a href="#" class="dropdown-toggle">--%>
-                <%--                                <i class="menu-icon fa fa-pencil orange"></i>--%>
-
-                <%--                                4th level--%>
-                <%--                                <b class="arrow fa fa-angle-down"></b>--%>
-                <%--                            </a>--%>
-
-                <%--                            <b class="arrow"></b>--%>
-
-                <%--                            <ul class="submenu">--%>
-                <%--                                <li class="">--%>
-                <%--                                    <a href="#">--%>
-                <%--                                        <i class="menu-icon fa fa-plus purple"></i>--%>
-                <%--                                        Add Product--%>
-                <%--                                    </a>--%>
-
-                <%--                                    <b class="arrow"></b>--%>
-                <%--                                </li>--%>
-
-                <%--                                <li class="">--%>
-                <%--                                    <a href="#">--%>
-                <%--                                        <i class="menu-icon fa fa-eye pink"></i>--%>
-                <%--                                        View Products--%>
-                <%--                                    </a>--%>
-
-                <%--                                    <b class="arrow"></b>--%>
-                <%--                                </li>--%>
-                <%--                            </ul>--%>
-                <%--                        </li>--%>
-                <%--                    </ul>--%>
-                <%--                </li>--%>
-            </ul>
         </li>
 
         <li class="">
             <a href="#" class="dropdown-toggle">
-                <i class="menu-icon fa fa-desktop"></i>
-                <span class="menu-text"> Non-Volatile Data </span>
-
-                <b class="arrow fa fa-angle-down"></b>
+                <i class="menu-icon fa fa-list"></i>
+                <span class="menu-text">
+								Sản phẩm
+							</span>
             </a>
 
-            <b class="arrow"></b>
+        </li>
 
-            <ul class="submenu">
-                <li class="">
-                    <a href="tables.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Computer Information
-                    </a>
+        <li class="">
+            <a href="#" class="dropdown-toggle">
+                <i class="menu-icon fa fa-list"></i>
+                <span class="menu-text">
+								Giỏ hàng
+							</span>
+            </a>
 
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="jqgrid.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        File Systems
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="jqgrid.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        System Event Log
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="jqgrid.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Browser History
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="jqgrid.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        File Recently
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-            </ul>
         </li>
 
         <%--        <li class="">--%>
@@ -463,69 +228,6 @@
         <%--                </li>--%>
         <%--            </ul>--%>
         <%--        </li>--%>
-
-        <li class="">
-            <a href="#" class="dropdown-toggle">
-                <i class="menu-icon fa fa-file-o"></i>
-
-                <span class="menu-text">
-								Other Datas
-
-								<span class="badge badge-primary">5</span>
-							</span>
-
-                <b class="arrow fa fa-angle-down"></b>
-            </a>
-
-            <b class="arrow"></b>
-
-            <ul class="submenu">
-                <li class="">
-                    <a href="faq.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Data
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="error-404.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Data
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="error-500.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Data
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="grid.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Data
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="blank.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Data
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-            </ul>
-        </li>
     </ul><!-- /.nav-list -->
 
     <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">

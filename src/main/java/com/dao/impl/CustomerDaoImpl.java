@@ -1,14 +1,14 @@
-package com.dao;
+package com.dao.impl;
 
 import java.util.List;
 
+import com.dao.CustomerDao;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.entity.Authorities;
 import com.entity.Cart;
 import com.entity.Customer;
@@ -33,7 +33,7 @@ public class CustomerDaoImpl implements CustomerDao {
 		Session session = sessionFactory.openSession();
 		//customer - has users,shippingaddress
 		//insert the users
-		customer.getUser().setEnabled(true);
+		customer.getUser().setEnabled(1);
 		
 		Authorities authorities = new Authorities();
 		authorities.setAuthority("ROLE_USER");

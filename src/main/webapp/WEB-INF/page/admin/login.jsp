@@ -35,11 +35,11 @@
 
                                 <div class="space-6"></div>
 
-                                <form>
+                                <form action="<c:url value="/j_spring_security_check"/>" method="post">
                                     <fieldset>
                                         <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control"
+															<input type="text" class="form-control" name="j_username"
                                                                    placeholder="Username"/>
 															<i class="ace-icon fa fa-user"></i>
 														</span>
@@ -47,7 +47,7 @@
 
                                         <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control"
+															<input type="password" class="form-control" name="j_password"
                                                                    placeholder="Password"/>
 															<i class="ace-icon fa fa-lock"></i>
 														</span>
@@ -61,7 +61,7 @@
                                                 <span class="lbl"> Remember Me</span>
                                             </label>
 
-                                            <button type="button" class="width-35 pull-right btn btn-sm btn-primary">
+                                            <button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
                                                 <i class="ace-icon fa fa-key"></i>
                                                 <span class="bigger-110">Login</span>
                                             </button>

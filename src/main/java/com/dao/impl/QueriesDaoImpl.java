@@ -1,5 +1,6 @@
-package com.dao;
+package com.dao.impl;
 
+import com.dao.QueriesDao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.entity.Queries;
 
 @Repository
-public class QueriesDaoImpl implements QueriesDao  {
+public class QueriesDaoImpl implements QueriesDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;

@@ -19,7 +19,7 @@ import com.service.QueriesService;
 import com.entity.Product;
 import com.service.ProductService;
 
-@Controller
+@Controller(value = "webHomeController")
 public class HomeController {
 
 	@Autowired
@@ -35,7 +35,7 @@ public class HomeController {
 		this.productService = productService;
 	}
 
-	@RequestMapping("/")
+	@RequestMapping("/home")
 	public ModelAndView home(HttpServletRequest request) {
 		System.out.println(request.getUserPrincipal());
 		List<Product> products = productService.getProductsByQuery("", 10, 0);

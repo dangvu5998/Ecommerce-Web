@@ -1,7 +1,8 @@
-package com.dao;
+package com.dao.impl;
 
 import java.util.List;
 
+import com.dao.CartItemDao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

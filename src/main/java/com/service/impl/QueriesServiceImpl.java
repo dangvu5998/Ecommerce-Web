@@ -1,5 +1,6 @@
-package com.service;
+package com.service.impl;
 
+import com.service.QueriesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
