@@ -63,13 +63,18 @@
 
 <!-- jQuery -->
 <script src="<c:url value='/template/admin/js/metisMenu.min.js' />"></script>
-<script src="<c:url value='/template/admin/js/raphael.min.js' />"></script>
-<script src="<c:url value='/template/admin/js/morris.min.js' />"></script>
-<script src="<c:url value='/template/admin/js/morris-data.js' />"></script>
-<script src="<c:url value='/template/admin/js/startmin.js' />"></script>
+<%--<script src="<c:url value='/template/admin/js/raphael.min.js' />"></script>--%>
+<%--<script src="<c:url value='/template/admin/js/morris.min.js' />"></script>--%>
+<%--<script src="<c:url value='/template/admin/js/morris-data.js' />"></script>--%>
 <script src="<c:url value='/template/admin/js/dataTables/jquery.dataTables.min.js' />"></script>
 <script src="<c:url value='/template/admin/js/dataTables/dataTables.bootstrap.min.js' />"></script>
+<script src="<c:url value='/template/admin/js/startmin.js' />"></script>
 <script type="text/javascript">
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+    });
     function confirmLogout() {
         swal({
             title: "Đăng xuất",
