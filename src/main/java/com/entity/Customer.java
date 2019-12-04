@@ -23,7 +23,7 @@ public class Customer implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int customerId;
+	private Integer customerId;
 	private String firstName;
 	private String lastName;
 	private String customerPhone;
