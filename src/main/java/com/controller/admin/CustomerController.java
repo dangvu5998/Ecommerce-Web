@@ -9,8 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class CustomerController {
     @RequestMapping(value = "/admin-customer/list", method = RequestMethod.GET)
     public ModelAndView adminHomePage() {
-        ModelAndView modelAndView = new ModelAndView("admin/list-customers");
-
+        ModelAndView modelAndView = new ModelAndView("admin/list-customer");
         return modelAndView;
     }
 }

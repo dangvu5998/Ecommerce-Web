@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/common/taglib.jsp" %>
+<c:url var="logoutUrl" value="/admin-logout"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +16,13 @@
     <link href="<c:url value='/template/admin/css/bootstrap.min.css' />" rel="stylesheet" type="text/css" media="all"/>
     <!-- MetisMenu CSS -->
     <link href="<c:url value='/template/admin/css/metisMenu.min.css' />" rel="stylesheet" type="text/css" media="all"/>
+
+    <!-- DataTables CSS -->
+    <link href="<c:url value='/template/admin/css/dataTables/dataTables.bootstrap.css' />" rel="stylesheet" type="text/css" media="all"/>
+
+    <!-- DataTables Responsive CSS -->
+    <link href="<c:url value='/template/admin/css/dataTables/dataTables.responsive.css' />" rel="stylesheet" type="text/css" media="all"/>
+
     <!-- Timeline CSS -->
     <link href="<c:url value='/template/admin/css/timeline.css' />" rel="stylesheet" type="text/css" media="all"/>
     <!-- Custom CSS -->
@@ -22,13 +30,16 @@
     <!-- Morris Charts CSS -->
     <link href="<c:url value='/template/admin/css/morris.css' />" rel="stylesheet" type="text/css" media="all"/>
     <!-- Custom Fonts -->
-    <link href="<c:url value='/template/admin/css/font-awesome.min.css' />" rel="stylesheet" type="text/css" media="all"/>
+    <link href="<c:url value='/template/admin/css/font-awesome.min.css' />" rel="stylesheet" type="text/css"
+          media="all"/>
+    <link href="<c:url value='/template/admin/sweet/sweetalert2.min.css' />" rel="stylesheet" type="text/css"
+          media="all"/>
+    <script src="<c:url value='/template/admin/js/jquery.min.js' />"></script>
+    <script src="<c:url value='/template/admin/js/bootstrap.min.js' />"></script>
+    <script src="<c:url value='/template/admin/sweet/sweetalert2.min.js' />"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <!--[if lt IE 9]><![endif]-->
 </head>
 <body>
 
@@ -51,13 +62,32 @@
 <!-- /#wrapper -->
 
 <!-- jQuery -->
-<script src="<c:url value='/template/admin/js/jquery.min.js' />"></script>
-<script src="<c:url value='/template/admin/js/bootstrap.min.js' />"></script>
 <script src="<c:url value='/template/admin/js/metisMenu.min.js' />"></script>
 <script src="<c:url value='/template/admin/js/raphael.min.js' />"></script>
 <script src="<c:url value='/template/admin/js/morris.min.js' />"></script>
 <script src="<c:url value='/template/admin/js/morris-data.js' />"></script>
 <script src="<c:url value='/template/admin/js/startmin.js' />"></script>
+<script src="<c:url value='/template/admin/js/dataTables/jquery.dataTables.min.js' />"></script>
+<script src="<c:url value='/template/admin/js/dataTables/dataTables.bootstrap.min.js' />"></script>
+<script type="text/javascript">
+    function confirmLogout() {
+        swal({
+            title: "Đăng xuất",
+            text: "Bạn có chắc chắn muốn đăng xuất?",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-success",
+            cancelButtonClass: "btn-danger",
+            confirmButtonText: "Xác nhận",
+            cancelButtonText: "Hủy bỏ",
+            showLoaderOnConfirm: true,
+        }).then(function(isConfirm) {
+            if (isConfirm.value) {
+                window.location.href = "${logoutUrl}";
+            }
+        });
+    }
+</script>
 
 </body>
 </html>
