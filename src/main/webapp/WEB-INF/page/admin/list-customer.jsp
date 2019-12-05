@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/common/taglib.jsp" %>
 <!DOCTYPE html>
-
 <html>
 
 <head>
@@ -30,7 +29,10 @@
                 <button type="button" class="btn btn-labeled btn-primary">
                     <span class="btn-label"><i class="fa fa-filter"></i></span> Tìm kiếm
                 </button>
-                <button type="button" class="btn btn-success" id="btn-add" style="float: right">
+                <c:url var="addCustomerUrl" value="/admin-customer/edit"/>
+                <button onclick="window.location.href = '${addCustomerUrl}'" type="button" class="btn btn-success"
+                        id="btn-add"
+                        style="float: right">
                     <span class="btn-label"><i class="fa fa-plus"></i></span> Thêm mới
                 </button>
                 <div class="dropdown-menu">
@@ -59,6 +61,7 @@
                                 <th>Họ và tên</th>
                                 <th>Email</th>
                                 <th>Số điện thoại</th>
+                                <th>Địa chỉ</th>
                                 <th>Trạng thái</th>
                                 <th>Thao tác</th>
                             </tr>
@@ -70,6 +73,7 @@
                                     <td>${item.userDTO.fullName}</td>
                                     <td>${item.userDTO.email}</td>
                                     <td class="center">${item.customerPhone}</td>
+                                    <td class="center">${item.address}</td>
                                     <c:if test="${item.userDTO.enable == 0}">
                                         <td>
                                             <button type="button" class="btn btn-danger">Chưa kích hoạt</button>
@@ -81,7 +85,10 @@
                                         </td>
                                     </c:if>
                                     <td>
-                                        <a href="#" data-id="85"
+                                        <c:url var="editCustomerUrl" value="/admin-customer/edit">
+                                            <c:param name="customerId" value="${item.customerId}"/>
+                                        </c:url>
+                                        <a href="${editCustomerUrl}" data-id="85"
                                            class="btn btn-icon btn-sm btn-primary deleteDialog tip">
                                             <i class="fa fa-pencil-square-o"></i>
                                         </a>

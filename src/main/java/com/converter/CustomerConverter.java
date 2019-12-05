@@ -23,6 +23,7 @@ public class CustomerConverter implements BaseConverter<Customer, CustomerDTO> {
         customerDTO.setCustomerPhone(entity.getCustomerPhone());
         customerDTO.setFirstName(entity.getFirstName());
         customerDTO.setLastName(entity.getLastName());
+        customerDTO.setAddress(entity.getAddress());
         if (SecurityContextHolder.getContext().getAuthentication() != null &&
                 SecurityContextHolder.getContext().getAuthentication().isAuthenticated() &&
                 //when Anonymous Authentication is enabled
@@ -41,6 +42,7 @@ public class CustomerConverter implements BaseConverter<Customer, CustomerDTO> {
         customer.setCustomerPhone(dto.getCustomerPhone());
         customer.setFirstName(dto.getFirstName());
         customer.setLastName(dto.getLastName());
+        customer.setAddress(dto.getAddress());
         return customer;
     }
 }

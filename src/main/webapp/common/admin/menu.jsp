@@ -35,7 +35,7 @@
                 <a href="<c:url value="/admin-customer/list"/> "><i class="fa fa-table fa-fw"></i> Khách hàng</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-edit fa-fw"></i> Sản phẩm</a>
+                <a href="#"><i class="fa fa-edit fa-fw"></i>Sản phẩm</a>
             </li>
             <%--            <li>--%>
             <%--                <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>--%>

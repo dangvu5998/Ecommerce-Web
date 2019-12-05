@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class AdminCustomerServiceImpl implements AdminCustomerService {
@@ -27,5 +29,18 @@ public class AdminCustomerServiceImpl implements AdminCustomerService {
             lists.add(customerConverter.toDTO(customer));
         }
         return lists;
+    }
+
+    @Override
+    public CustomerDTO findOneById(Integer id) {
+        return customerConverter.toDTO(customerRepository.findOne(id));
+    }
+
+    @Override
+    public Map<Integer, String> getListStatus() {
+        Map<Integer, String> result = new HashMap<>();
+        result.put(0, "Chưa kích hoạt");
+        result.put(1, "Đã kích hoạt");
+        return result;
     }
 }

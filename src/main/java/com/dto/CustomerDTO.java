@@ -2,13 +2,22 @@ package com.dto;
 
 import com.entity.Cart;
 
+import javax.persistence.Column;
+
 public class CustomerDTO {
     private Integer customerId;
+    private String fullName;
+    private String email;
     private String firstName;
     private String lastName;
     private String customerPhone;
     private UserDTO userDTO;
     private CartDTO cartDTO;
+    @Column(name = "address", columnDefinition = "TEXT")
+    private String address;
+
+    public CustomerDTO() {
+    }
 
     public Integer getCustomerId() {
         return customerId;
@@ -56,5 +65,13 @@ public class CustomerDTO {
 
     public void setCartDTO(CartDTO cartDTO) {
         this.cartDTO = cartDTO;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

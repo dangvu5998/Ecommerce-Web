@@ -36,14 +36,10 @@ public class UserDetailServiceImpl implements UserDetailsService {
         for (Authorities authority : user.getAuthorities()) {
             authorities.add(new SimpleGrantedAuthority(authority.getAuthority()));
         }
-        UserDTO userDTO = new UserDTO(
-                user.getUserName(),
-                user.getPassword(),
-                true,
-                true,
-                true,
-                true,
-                authorities);
+        UserDTO userDTO = new UserDTO();
+        userDTO.setUserName(user.getUserName());
+        userDTO.setPassword(user.getPassword());
+        userDTO.setAuthorities(authorities);
         userDTO.setFullName(user.getFullName());
         userDTO.setEmail(user.getEmailId());
         userDTO.setCustomerDTO(customerConverter.toDTO(user.getCustomer()));

@@ -27,6 +27,7 @@ public class Customer implements Serializable {
 	private String firstName;
 	private String lastName;
 	private String customerPhone;
+	private String address;
 
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "userId")
@@ -93,4 +94,15 @@ public class Customer implements Serializable {
 		this.user = user;
 	}
 
+	public void setCustomerId(Integer customerId) {
+		this.customerId = customerId;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
 }
