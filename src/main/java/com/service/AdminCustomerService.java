@@ -11,4 +11,6 @@ public interface AdminCustomerService {
     CustomerDTO findOneById(Integer id);
 
     Map<Integer, String> getListStatus();
+
+    CustomerDTO save(CustomerDTO customerDTO);
 }

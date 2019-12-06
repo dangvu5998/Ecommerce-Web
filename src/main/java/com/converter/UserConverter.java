@@ -15,19 +15,29 @@ public class UserConverter implements BaseConverter<User, UserDTO> {
 
     @Override
     public UserDTO toDTO(User entity) {
-        return null;
+        UserDTO userDTO = new UserDTO();
+        userDTO.setUserId(entity.getUserId());
+        userDTO.setUserName(entity.getUserName());
+        userDTO.setPassword(entity.getPassword());
+        userDTO.setFullName(entity.getFullName());
+        userDTO.setEmail(entity.getEmailId());
+        userDTO.setEnable(entity.getEnabled());
+        return userDTO;
     }
 
     @Override
     public User toEntity(UserDTO dto) {
         User user = new User();
-        user.setUserId(dto.getUserId());
         user.setUserName(dto.getUsername());
         user.setPassword(dto.getPassword());
         user.setEnabled(dto.getEnable());
         user.setEmailId(dto.getEmail());
-        user.setCustomer(customerConverter.toEntity(dto.getCustomerDTO()));
         user.setFullName(dto.getFullName());
+        return user;
+    }
+
+    @Override
+    public User toEntity(User entity, UserDTO dto) {
         return null;
     }
 }

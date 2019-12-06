@@ -10,9 +10,7 @@ public class UserDTO implements UserDetails {
     private Integer userId;
     private String fullName;
     private String email;
-    private CustomerDTO customerDTO;
     private Integer enable;
-
     private String userName;
     private String password;
     private Collection<? extends GrantedAuthority> authorities;
@@ -49,13 +47,6 @@ public class UserDTO implements UserDetails {
         this.email = email;
     }
 
-    public CustomerDTO getCustomerDTO() {
-        return customerDTO;
-    }
-
-    public void setCustomerDTO(CustomerDTO customerDTO) {
-        this.customerDTO = customerDTO;
-    }
 
     public Integer getUserId() {
         return userId;

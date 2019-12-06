@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/common/taglib.jsp" %>
+<c:url var="listCustomerUrl" value="/admin-customer/list"/>
+<c:url var="addCustomerUrl" value="/admin-customer/edit"/>
 <!DOCTYPE html>
 <html>
 
@@ -11,7 +13,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Tables</h1>
+            <h1 class="page-header">Khách hàng</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -23,13 +25,12 @@
                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                     Tác vụ
                 </button>
-                <button type="button" class="btn btn-success">
+                <button onclick="window.location.href = '${listCustomerUrl}'" type="button" class="btn btn-success">
                     <span class="btn-label"><i class="fa fa-refresh"></i></span> Làm mới
                 </button>
                 <button type="button" class="btn btn-labeled btn-primary">
                     <span class="btn-label"><i class="fa fa-filter"></i></span> Tìm kiếm
                 </button>
-                <c:url var="addCustomerUrl" value="/admin-customer/edit"/>
                 <button onclick="window.location.href = '${addCustomerUrl}'" type="button" class="btn btn-success"
                         id="btn-add"
                         style="float: right">
@@ -49,7 +50,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    DataTables Advanced Tables
+                    Danh sách khách hàng
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -93,7 +94,7 @@
                                             <i class="fa fa-pencil-square-o"></i>
                                         </a>
 
-                                        <a href="#" data-id="85"
+                                        <a href="#" data-id="85" onclick="confirmDelete()"
                                            class="btn btn-icon btn-sm btn-danger deleteDialog tip">
                                             <i class="fa fa-trash"></i>
                                         </a>
@@ -114,6 +115,28 @@
     <!-- /.row -->
     <!-- /.row -->
 </div>
+<script>
+    function confirmDelete() {
+        swal({
+            title: "Xóa khách hàng",
+            text: "Bạn có chắc chắn muốn khách hàng?",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-success",
+            cancelButtonClass: "btn-danger",
+            confirmButtonText: "Xác nhận",
+            cancelButtonText: "Hủy bỏ",
+            showLoaderOnConfirm: true,
+        }).then(function(isConfirm) {
+            if (isConfirm.value) {
+                <%--window.location.href = "${logoutUrl}";--%>
+                swal("Deleted!", "Your imaginary file has been deleted.", "success");
+            }else{
+                swal("Cancelled", "Your imaginary file is safe :)", "error");
+            }
+        });
+    }
+</script>
 </body>
 
 </html>

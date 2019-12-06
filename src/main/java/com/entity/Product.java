@@ -1,7 +1,6 @@
 package com.entity;
 
 import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,142 +18,142 @@ import org.springframework.web.multipart.MultipartFile;
 @Table(name = "product")
 public class Product implements Serializable {
 
-	private static final long serialVersionUID = 5186013952828648626L;
+    private static final long serialVersionUID = 5186013952828648626L;
 
-	@Id
-	@Column(name = "productId")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int productId;
-	
-	@Column(name="category")
-	private String productCategory;
-	
-	@Column(name = "overview")
-	private String productOverview;
-	
-	@Column(name = "description", length = 1000)
-	private String productDescription;
-	
-	@Column(name = "manufacturer")
-	private String productManufacturer;
+    @Id
+    @Column(name = "productId")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int productId;
 
-	@NotEmpty(message = "Product Name is mandatory")
-	@Column(name = "name")
-	private String productName;
-	
-	@NotNull(message="Please provide some price")
-	@Min(value = 0, message = "Minimum value should be greater than 0")
-	@Column(name = "price")
-	private double productPrice;
-	
-	@Column(name = "salePrice")
-	@Min(value = 0, message = "Minimum value should be greater than 0")
-	private double productSalePrice;
+    @Column(name = "category")
+    private String productCategory;
 
-	@Column(name = "quantity")
-	@Min(value = 0, message = "Minimum value should be greater than 0")
-	private int quantity;
+    @Column(name = "overview", columnDefinition = "TEXT")
+    private String productOverview;
 
-	@Transient
-	private MultipartFile productImage;
+    @Column(name = "description", columnDefinition = "TEXT")
+    private String productDescription;
 
-	// Getters and Setter
+    @Column(name = "manufacturer")
+    private String productManufacturer;
 
-	public int getProductId() {
-		return productId;
-	}
+    @NotEmpty(message = "Product Name is mandatory")
+    @Column(name = "name")
+    private String productName;
 
-	public String getProductCategory() {
-		return productCategory;
-	}
+    @NotNull(message = "Please provide some price")
+    @Min(value = 0, message = "Minimum value should be greater than 0")
+    @Column(name = "price")
+    private double productPrice;
 
-	public String getProductDescription() {
-		return productDescription;
-	}
+    @Column(name = "salePrice")
+    @Min(value = 0, message = "Minimum value should be greater than 0")
+    private double productSalePrice;
 
-	public String getProductOverview() {
-		return productOverview;
-	}
+    @Column(name = "quantity")
+    @Min(value = 0, message = "Minimum value should be greater than 0")
+    private int quantity;
 
-	public String getProductManufacturer() {
-		return productManufacturer;
-	}
+    @Transient
+    private MultipartFile productImage;
 
-	public String getProductName() {
-		return productName;
-	}
+    // Getters and Setter
 
-	public double getProductPrice() {
-		return productPrice;
-	}
+    public int getProductId() {
+        return productId;
+    }
 
-	public int getQuantity() {
-		return quantity;
-	}
+    public String getProductCategory() {
+        return productCategory;
+    }
 
-	public double getProductSalePrice() {
-		return productSalePrice;
-	}
+    public String getProductDescription() {
+        return productDescription;
+    }
 
-	public void setProductId(int productId) {
-		this.productId = productId;
-	}
+    public String getProductOverview() {
+        return productOverview;
+    }
 
-	public void setProductCategory(String productCategory) {
-		this.productCategory = productCategory;
-	}
+    public String getProductManufacturer() {
+        return productManufacturer;
+    }
 
-	public void setProductDescription(String productDescription) {
-		this.productDescription = productDescription;
-	}
+    public String getProductName() {
+        return productName;
+    }
 
-	public void setProductOverview(String productOverview) {
-		this.productOverview = productOverview;
-	}
+    public double getProductPrice() {
+        return productPrice;
+    }
 
-	public void setProductManufacturer(String productManufacturer) {
-		this.productManufacturer = productManufacturer;
-	}
+    public int getQuantity() {
+        return quantity;
+    }
 
-	public void setProductName(String productName) {
-		this.productName = productName;
-	}
+    public double getProductSalePrice() {
+        return productSalePrice;
+    }
 
-	public void setProductPrice(double productPrice) {
-		this.productPrice = productPrice;
-	}
+    public void setProductId(int productId) {
+        this.productId = productId;
+    }
 
-	public void setquantity(int quantity) {
-		this.quantity = quantity;
-	}
+    public void setProductCategory(String productCategory) {
+        this.productCategory = productCategory;
+    }
 
-	public MultipartFile getProductImage() {
-		return productImage;
-	}
+    public void setProductDescription(String productDescription) {
+        this.productDescription = productDescription;
+    }
 
-	public void setProductImage(MultipartFile productImage) {
-		this.productImage = productImage;
-	}
+    public void setProductOverview(String productOverview) {
+        this.productOverview = productOverview;
+    }
 
-	public void setProductSalePrice(double productSalePrice) {
-		this.productSalePrice = productSalePrice;
-	}
+    public void setProductManufacturer(String productManufacturer) {
+        this.productManufacturer = productManufacturer;
+    }
 
-	// Constructors
-	public Product(int productId, String productCategory, String productDescription, String productManufacturer,
-			String productName, double productPrice, int quantity) {
-		super();
-		this.productId = productId;
-		this.productCategory = productCategory;
-		this.productDescription = productDescription;
-		this.productManufacturer = productManufacturer;
-		this.productName = productName;
-		this.productPrice = productPrice;
-		this.quantity = quantity;
-	}
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
 
-	public Product() {
+    public void setProductPrice(double productPrice) {
+        this.productPrice = productPrice;
+    }
 
-	}
+    public void setquantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public MultipartFile getProductImage() {
+        return productImage;
+    }
+
+    public void setProductImage(MultipartFile productImage) {
+        this.productImage = productImage;
+    }
+
+    public void setProductSalePrice(double productSalePrice) {
+        this.productSalePrice = productSalePrice;
+    }
+
+    // Constructors
+    public Product(int productId, String productCategory, String productDescription, String productManufacturer,
+                   String productName, double productPrice, int quantity) {
+        super();
+        this.productId = productId;
+        this.productCategory = productCategory;
+        this.productDescription = productDescription;
+        this.productManufacturer = productManufacturer;
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.quantity = quantity;
+    }
+
+    public Product() {
+
+    }
 
 }

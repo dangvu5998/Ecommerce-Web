@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ page import="com.utils.SecurityUtil" %>
+<c:url var="homeUrl" value="/admin-home"/>
+<c:url var="logoutUrl" value="/admin-logout"/>
 <div class="navbar-header">
-    <a class="navbar-brand" href="index.html">Nhóm 19</a>
+    <a class="navbar-brand" href="${homeUrl}">Nhóm 19</a>
 </div>
 
 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -13,7 +15,7 @@
 </button>
 
 <ul class="nav navbar-nav navbar-left navbar-top-links">
-    <li><a href="#"><i class="fa fa-home fa-fw"></i> Trang quản trị</a></li>
+    <li><a href="${homeUrl}"><i class="fa fa-home fa-fw"></i> Trang quản trị</a></li>
 </ul>
 
 <ul class="nav navbar-right navbar-top-links">
@@ -87,6 +89,22 @@
     </li>
 </ul>
 <!-- /.navbar-top-links -->
-<script type="text/javascript">
-
+<script>
+    function confirmLogout() {
+        swal({
+            title: "Đăng xuất",
+            text: "Bạn có chắc chắn muốn đăng xuất?",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-success",
+            cancelButtonClass: "btn-danger",
+            confirmButtonText: "Xác nhận",
+            cancelButtonText: "Hủy bỏ",
+            showLoaderOnConfirm: true,
+        }).then(function(isConfirm) {
+            if (isConfirm.value) {
+                window.location.href = "${logoutUrl}";
+            }
+        });
+    }
 </script>

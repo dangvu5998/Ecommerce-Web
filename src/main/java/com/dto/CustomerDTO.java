@@ -6,14 +6,11 @@ import javax.persistence.Column;
 
 public class CustomerDTO {
     private Integer customerId;
-    private String fullName;
-    private String email;
     private String firstName;
     private String lastName;
     private String customerPhone;
     private UserDTO userDTO;
     private CartDTO cartDTO;
-    @Column(name = "address", columnDefinition = "TEXT")
     private String address;
 
     public CustomerDTO() {

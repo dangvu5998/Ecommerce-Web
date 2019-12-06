@@ -75,23 +75,6 @@
             responsive: true
         });
     });
-    function confirmLogout() {
-        swal({
-            title: "Đăng xuất",
-            text: "Bạn có chắc chắn muốn đăng xuất?",
-            type: "warning",
-            showCancelButton: true,
-            confirmButtonClass: "btn-success",
-            cancelButtonClass: "btn-danger",
-            confirmButtonText: "Xác nhận",
-            cancelButtonText: "Hủy bỏ",
-            showLoaderOnConfirm: true,
-        }).then(function(isConfirm) {
-            if (isConfirm.value) {
-                window.location.href = "${logoutUrl}";
-            }
-        });
-    }
 </script>
 
 </body>

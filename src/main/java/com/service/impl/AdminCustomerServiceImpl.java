@@ -5,8 +5,10 @@ import com.dto.CustomerDTO;
 import com.entity.Customer;
 import com.repository.CustomerRepository;
 import com.service.AdminCustomerService;
+import com.utils.SecurityUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,4 +45,19 @@ public class AdminCustomerServiceImpl implements AdminCustomerService {
         result.put(1, "Đã kích hoạt");
         return result;
     }
+
+    @Override
+    @Transactional
+    public CustomerDTO save(CustomerDTO customerDTO) {
+        Customer customer = new Customer();
+        if (customerDTO.getCustomerId() != null) {
+            Customer oldCustomer = customerRepository.findOne(customerDTO.getCustomerId());
+            customer = customerConverter.toEntity(oldCustomer, customerDTO);
+        } else {
+            customer = customerConverter.toEntity(customerDTO);
+        }
+        return customerConverter.toDTO(customerRepository.save(customer));
+    }
+
+
 }

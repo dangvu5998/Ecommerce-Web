@@ -42,7 +42,6 @@ public class UserDetailServiceImpl implements UserDetailsService {
         userDTO.setAuthorities(authorities);
         userDTO.setFullName(user.getFullName());
         userDTO.setEmail(user.getEmailId());
-        userDTO.setCustomerDTO(customerConverter.toDTO(user.getCustomer()));
         userDTO.setEnable(user.getEnabled());
         return userDTO;
     }

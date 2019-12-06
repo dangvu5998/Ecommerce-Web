@@ -2,15 +2,7 @@ package com.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -27,6 +19,7 @@ public class Customer implements Serializable {
 	private String firstName;
 	private String lastName;
 	private String customerPhone;
+	@Column(name = "address", columnDefinition = "TEXT")
 	private String address;
 
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -46,12 +39,8 @@ public class Customer implements Serializable {
 		this.cart = cart;
 	}
 
-	public int getCustomerId() {
+	public Integer getCustomerId() {
 		return customerId;
-	}
-
-	public void setCustomerId(int customerId) {
-		this.customerId = customerId;
 	}
 
 	public String getCustomerPhone() {

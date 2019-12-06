@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/common/taglib.jsp" %>
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -34,7 +35,14 @@
                 </div>
                 <div class="panel-body">
                     <div class="row">
-                        <form:form role="form" modelAttribute="model_customer" method="post" name="model_customer">
+                        <c:if test="${empty model_customer.customerId}">
+                            <c:url var="adminCustomer" value="/admin-customer/add"/>
+                        </c:if>
+                        <c:if test="${not empty model_customer.customerId}">
+                            <c:url var="adminCustomer" value="/admin-customer/edit"/>
+                        </c:if>
+                        <form:form role="form" modelAttribute="model_customer" method="post" id="formSubmit"
+                                   action="${adminCustomer}" >
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>Họ và tên</label>
@@ -64,15 +72,16 @@
                                         <form:options items="${model_list_status}"/>
                                     </form:select>
                                 </div>
-                                <c:if test="${empty model_customer.customerId}">
-                                    <button type="submit" class="align-self-end btn btn-success">Thêm mới</button>
-                                </c:if>
-                                <c:if test="${not empty model_customer.customerId}">
-                                    <button type="submit" class="align-self-end btn btn-success">Lưu chỉnh sửa</button>
-                                </c:if>
-                                <button type="reset" class="align-self-end btn btn-social">Reset Button</button>
+
+                                <button type="submit" class="align-self-end btn btn-success"
+                                        id="btnCreateAndUpdateCustomer">
+                                    <c:if test="${empty model_customer.customerId}">Thêm mới</c:if>
+                                    <c:if test="${not empty model_customer.customerId}">Lưu chỉnh sửa</c:if>
+                                </button>
+                                <button type="reset" class="align-self-end btn btn-social">Làm mới</button>
                             </div>
                             <!-- /.col-lg-6 (nested) -->
+                            <form:hidden path="customerId" id="customerId"/>
                         </form:form>
                     </div>
                     <!-- /.row (nested) -->
@@ -86,6 +95,50 @@
     <!-- /.row -->
 </div>
 <!-- /.container-fluid -->
+<script>
+    <%--$('#btnCreateAndUpdateCustomer').click(function (e) {--%>
+    <%--    e.preventDefault();--%>
+    <%--    var formFields = $('*:not(.no-serialize)', '#formSubmit').serialize();--%>
+    <%--    if ($('#customerId').val() != "") {--%>
+    <%--        updateCustomer(formFields);--%>
+    <%--    } else {--%>
+    <%--        addCustomer(formFields);--%>
+    <%--    }--%>
+    <%--});--%>
 
+    <%--function updateCustomer(formFields) {--%>
+    <%--    $('#formSubmit').submit(function (e) {--%>
+    <%--        $.ajax({--%>
+    <%--            url: '${apiAdminCustomer}',--%>
+    <%--            type: 'PUT',--%>
+    <%--            global: false,--%>
+    <%--            contentType : 'application/json; charset=utf-8',--%>
+    <%--            data: JSON.stringify(formFields),--%>
+    <%--            async: false,--%>
+    <%--            success: function (result) {--%>
+    <%--            },--%>
+    <%--            error: function (error) {--%>
+    <%--            }--%>
+    <%--        });--%>
+    <%--    });--%>
+    <%--}--%>
+
+    <%--function addCustomer(formFields) {--%>
+    <%--    $('#formSubmit').submit(function (e) {--%>
+    <%--        $.ajax({--%>
+    <%--            url: '${apiAdminCustomer}',--%>
+    <%--            type: 'post',--%>
+    <%--            global: false,--%>
+    <%--            contentType : 'application/json; charset=utf-8',--%>
+    <%--            data: JSON.stringify(formFields),--%>
+    <%--            async: false,--%>
+    <%--            success: function (result) {--%>
+    <%--            },--%>
+    <%--            error: function (error) {--%>
+    <%--            }--%>
+    <%--        });--%>
+    <%--    });--%>
+    <%--}--%>
+</script>
 </body>
 </html>
