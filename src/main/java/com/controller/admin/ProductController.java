@@ -63,8 +63,8 @@ public class ProductController {
 
     @RequestMapping(value = "/admin-product/delete", method = RequestMethod.GET)
     public ModelAndView adminDeleteCustomerPage(@RequestParam(value = "productId", required = false) Integer id, RedirectAttributes redirectAttributes) {
-        adminProductService.delete(id);
         redirectAttributes.addAttribute("category", adminProductService.findOneById(id).getProductCategory());
+        adminProductService.delete(id);
         ModelAndView modelAndView = new ModelAndView("redirect:/admin-product/list");
         return modelAndView;
     }
