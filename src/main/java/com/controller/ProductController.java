@@ -32,7 +32,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.entity.Product;
 import com.service.ProductService;
 
-@Controller
+@Controller(value = "webProductController")
 public class ProductController {
 
 	@Autowired

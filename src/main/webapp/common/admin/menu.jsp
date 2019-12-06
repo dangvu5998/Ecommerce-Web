@@ -19,23 +19,26 @@
                 <a href='<c:url value="/admin-home"/> ' class="active"><i class="fa fa-dashboard fa-fw"></i>
                     Dashboard</a>
             </li>
-            <%--            <li>--%>
-            <%--                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>--%>
-            <%--                <ul class="nav nav-second-level">--%>
-            <%--                    <li>--%>
-            <%--                        <a href="flot.html">Flot Charts</a>--%>
-            <%--                    </li>--%>
-            <%--                    <li>--%>
-            <%--                        <a href="morris.html">Morris.js Charts</a>--%>
-            <%--                    </li>--%>
-            <%--                </ul>--%>
-            <%--                <!-- /.nav-second-level -->--%>
-            <%--            </li>--%>
             <li>
                 <a href="<c:url value="/admin-customer/list"/> "><i class="fa fa-table fa-fw"></i> Khách hàng</a>
             </li>
+            <%--            <li>--%>
+            <%--                <a href="<c:url value="/admin-product/list"/> "><i class="fa fa-edit fa-fw"></i></a>--%>
+            <%--            </li>--%>
             <li>
-                <a href="#"><i class="fa fa-edit fa-fw"></i>Sản phẩm</a>
+                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Sản phẩm<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href='<c:url value="/admin-product/list?category=Smartphone"/> '>Smartphone</a>
+                    </li>
+                    <li>
+                        <a href='<c:url value="/admin-product/list?category=Laptop"/> '>Laptop</a>
+                    </li>
+                    <li>
+                        <a href='<c:url value="/admin-product/list?category=Tablet"/> '>Tablet</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
             </li>
             <%--            <li>--%>
             <%--                <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>--%>

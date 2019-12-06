@@ -10,7 +10,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 public class ProductDTO {
-    private int productId;
+    private Integer productId;
     private String productCategory;
     private String productOverview;
     private String productDescription;
@@ -20,11 +20,11 @@ public class ProductDTO {
     private double productSalePrice;
     private int quantity;
 
-    public int getProductId() {
+    public Integer getProductId() {
         return productId;
     }
 
-    public void setProductId(int productId) {
+    public void setProductId(Integer productId) {
         this.productId = productId;
     }
 

@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/common/taglib.jsp" %>
-<c:url var="listCustomerUrl" value="/admin-customer/list"/>
-<c:url var="addCustomerUrl" value="/admin-customer/edit"/>
+<c:url var="listProductUrl" value="/admin-product/list">
+    <c:param name="category" value="${model_product.get(0).productCategory}"/>
+</c:url>
+<c:url var="addProductUrl" value="/admin-product/edit"/>
+<c:url var="deleteProductUrl" value="/admin-product/delete"/>
 <!DOCTYPE html>
 <html>
 
@@ -13,7 +16,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Khách hàng</h1>
+            <h1 class="page-header">Sản phẩm</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -25,13 +28,13 @@
                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                     Tác vụ
                 </button>
-                <button onclick="window.location.href = '${listCustomerUrl}'" type="button" class="btn btn-success">
+                <button onclick="window.location.href = '${listProductUrl}'" type="button" class="btn btn-success">
                     <span class="btn-label"><i class="fa fa-refresh"></i></span> Làm mới
                 </button>
                 <button type="button" class="btn btn-labeled btn-primary">
                     <span class="btn-label"><i class="fa fa-filter"></i></span> Tìm kiếm
                 </button>
-                <button onclick="window.location.href = '${addCustomerUrl}'" type="button" class="btn btn-success"
+                <button onclick="window.location.href = '${addProductUrl}'" type="button" class="btn btn-success"
                         id="btn-add"
                         style="float: right">
                     <span class="btn-label"><i class="fa fa-plus"></i></span> Thêm mới
@@ -50,7 +53,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Danh sách khách hàng
+                    Danh sách sản phẩm
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -59,42 +62,34 @@
                             <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Họ và tên</th>
-                                <th>Email</th>
-                                <th>Số điện thoại</th>
-                                <th>Địa chỉ</th>
-                                <th>Trạng thái</th>
+                                <th>Thể loại</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Mô tả ngắn</th>
+                                <th>Giá bán</th>
+                                <th>Khuyến mại</th>
+                                <th>Số lượng</th>
                                 <th>Thao tác</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach var="item" items="${model_customer}">
+                            <c:forEach var="item" items="${model_product}">
                                 <tr class="odd gradeX">
-                                    <td>${item.customerId}</td>
-                                    <td>${item.userDTO.fullName}</td>
-                                    <td>${item.userDTO.email}</td>
-                                    <td class="center">${item.customerPhone}</td>
-                                    <td class="center">${item.address}</td>
-                                    <c:if test="${item.userDTO.enable == 0}">
-                                        <td>
-                                            <button type="button" class="btn btn-danger">Chưa kích hoạt</button>
-                                        </td>
-                                    </c:if>
-                                    <c:if test="${item.userDTO.enable == 1}">
-                                        <td>
-                                            <button type="button" class="btn btn-success">Đã kích hoạt</button>
-                                        </td>
-                                    </c:if>
-                                    <td>
-                                        <c:url var="editCustomerUrl" value="/admin-customer/edit">
-                                            <c:param name="customerId" value="${item.customerId}"/>
+                                    <td>${item.productId}</td>
+                                    <td>${item.productCategory}</td>
+                                    <td>${item.productName}</td>
+                                    <td class="center">${item.productOverview}</td>
+                                    <td class="center">${item.productPrice}</td>
+                                    <td class="center">${item.productSalePrice}</td>
+                                    <td class="center">${item.quantity}</td>
+                                    <td width="90px">
+                                        <c:url var="editProductUrl" value="/admin-product/edit">
+                                            <c:param name="productId" value="${item.productId}"/>
                                         </c:url>
-                                        <a href="${editCustomerUrl}" data-id="85"
+                                        <a href="${editProductUrl}" data-id="85"
                                            class="btn btn-icon btn-sm btn-primary deleteDialog tip">
                                             <i class="fa fa-pencil-square-o"></i>
                                         </a>
-
-                                        <a href="#" data-id="85" onclick="confirmDelete()"
+                                        <a href="#" data-id="85" onclick="confirmDelete(${item.productId})"
                                            class="btn btn-icon btn-sm btn-danger deleteDialog tip">
                                             <i class="fa fa-trash"></i>
                                         </a>
@@ -116,10 +111,10 @@
     <!-- /.row -->
 </div>
 <script>
-    function confirmDelete() {
+    function confirmDelete(id) {
         swal({
-            title: "Xóa khách hàng",
-            text: "Bạn có chắc chắn muốn xóa khách hàng?",
+            title: "Xóa sản phẩm",
+            text: "Bạn có chắc chắn muốn xóa sản phẩm?",
             type: "warning",
             showCancelButton: true,
             confirmButtonClass: "btn-success",
@@ -127,12 +122,19 @@
             confirmButtonText: "Xác nhận",
             cancelButtonText: "Hủy bỏ",
             showLoaderOnConfirm: true,
-        }).then(function(isConfirm) {
+        }).then(function (isConfirm) {
             if (isConfirm.value) {
                 <%--window.location.href = "${logoutUrl}";--%>
-                swal("Deleted!", "Your imaginary file has been deleted.", "success");
-            }else{
-                swal("Cancelled", "Your imaginary file is safe :)", "error");
+                swal({
+                    title: "Xóa sản phẩm!",
+                    text: "Sản phẩm đã được xóa.",
+                    type: "success"
+                }).then(function (isConfirm) {
+                    if (isConfirm.value) {
+                        window.location.href = "${deleteProductUrl}?productId=" + id;
+                    }
+                })
+            } else {
             }
         });
     }
