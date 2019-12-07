@@ -10,7 +10,6 @@ public class CustomerDTO {
     private String lastName;
     private String customerPhone;
     private UserDTO userDTO;
-    private CartDTO cartDTO;
     private String address;
 
     public CustomerDTO() {
@@ -54,14 +53,6 @@ public class CustomerDTO {
 
     public void setUserDTO(UserDTO userDTO) {
         this.userDTO = userDTO;
-    }
-
-    public CartDTO getCartDTO() {
-        return cartDTO;
-    }
-
-    public void setCartDTO(CartDTO cartDTO) {
-        this.cartDTO = cartDTO;
     }
 
     public String getAddress() {

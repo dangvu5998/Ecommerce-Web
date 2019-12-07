@@ -2,41 +2,46 @@ package com.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "order")
+@Table(name = "customerorder")
 public class CustomerOrder implements Serializable {
 
 	private static final long serialVersionUID = -6571020025726257848L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int customerOrderId;
-
+	private Integer customerOrderId;
+	private String code;
 	private String address;
-
 	private String note;
-	
+	private Integer status;
 	@OneToOne
-	@JoinColumn(name = "cartId")
+	@JoinColumn(name = "cardId")
 	private Cart cart;
 
-	@OneToOne
-	@JoinColumn(name = "customerId")
-	private Customer customer;
+	public String getCode() {
+		return code;
+	}
 
-	public int getCustomerOrderId() {
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+
+	public Integer getCustomerOrderId() {
 		return customerOrderId;
 	}
 
-	public void setCustomerOrderId(int customerOrderId) {
+	public void setCustomerOrderId(Integer customerOrderId) {
 		this.customerOrderId = customerOrderId;
 	}
 
@@ -48,13 +53,6 @@ public class CustomerOrder implements Serializable {
 		this.cart = cart;
 	}
 
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
 
 	public String getAddress() {
 		return address;

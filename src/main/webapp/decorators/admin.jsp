@@ -10,8 +10,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Trang quản trị</title>
-
     <!-- Bootstrap Core CSS -->
     <link href="<c:url value='/template/admin/css/bootstrap.min.css' />" rel="stylesheet" type="text/css" media="all"/>
     <!-- MetisMenu CSS -->

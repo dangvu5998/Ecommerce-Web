@@ -65,26 +65,26 @@ public class AdminProductServiceImpl implements AdminProductService {
     @Override
     public Map<String, String> findListCategory() {
         Map<String, String> result = new HashMap<>();
-        result.put("Smartphone", "Smartphone");
-        result.put("Laptop", "Laptop");
-        result.put("Tablet", "Tablet");
+        result.put("smartphone", "smartphone");
+        result.put("laptop", "laptop");
+        result.put("tablet", "tablet");
         return result;
     }
 
     @Override
     public Map<String, String> findListManufacture() {
         Map<String, String> result = new HashMap<>();
-        result.put("Apple", "Apple");
-        result.put("Samsung", "Samsung");
-        result.put("HTC", "HTC");
-        result.put("Sony", "Sony");
-        result.put("Huawei", "Huawei");
-        result.put("Oppo", "Oppo");
-        result.put("Lenovo", "Lenovo");
-        result.put("HP", "HP");
-        result.put("Acer", "Acer");
-        result.put("Asus", "Asus");
-        result.put("Dell", "Dell");
+        result.put("apple", "apple");
+        result.put("samsung", "samsung");
+        result.put("htc", "htc");
+        result.put("sony", "sony");
+        result.put("huawei", "huawei");
+        result.put("oppo", "oppo");
+        result.put("lenovo", "lenovo");
+        result.put("hp", "hp");
+        result.put("acer", "acer");
+        result.put("asus", "asus");
+        result.put("dell", "dell");
         return result;
     }
 

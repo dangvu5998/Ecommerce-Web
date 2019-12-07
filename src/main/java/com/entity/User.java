@@ -3,7 +3,6 @@ package com.entity;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
-import javax.validation.constraints.Null;
 
 @Entity
 @Table(name = "user")

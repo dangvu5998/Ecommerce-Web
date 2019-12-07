@@ -31,7 +31,7 @@ public class OrderController {
 
 		Customer customer = cart.getCustomer();
 
-		customerOrder.setCustomer(customer);
+//		customerOrder.setCustomer(customer);
 		// Set customerid
 
 		customerOrderService.addCustomerOrder(customerOrder);

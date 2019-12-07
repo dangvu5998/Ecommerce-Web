@@ -20,7 +20,7 @@ public class CartItem implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int cartItemId;
+	private Integer cartItemId;
 
 	private int quality;
 
@@ -35,11 +35,11 @@ public class CartItem implements Serializable {
 	@JsonIgnore
 	private Cart cart;
 
-	public int getCartItemId() {
+	public Integer getCartItemId() {
 		return cartItemId;
 	}
 
-	public void setCartItemId(int cartItemId) {
+	public void setCartItemId(Integer cartItemId) {
 		this.cartItemId = cartItemId;
 	}
 
