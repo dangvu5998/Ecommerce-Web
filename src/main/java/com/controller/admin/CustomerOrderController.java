@@ -25,4 +25,11 @@ public class CustomerOrderController {
         modelAndView.addObject(SystemConstant.MODEL_CUSTOMER_ORDER, lists);
         return modelAndView;
     }
+
+    @RequestMapping(value = "/admin-customer-order/show", method = RequestMethod.GET)
+    public ModelAndView adminshowOrderPage() {
+        ModelAndView modelAndView = new ModelAndView("admin/order-detail");
+        return modelAndView;
+    }
+
 }

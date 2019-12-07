@@ -86,17 +86,21 @@
                                         </td>
                                     </c:if>
                                     <td>
-                                        <c:url var="editCustomerUrl" value="/admin-customer/edit">
-                                            <c:param name="customerOrderId" value="${item.customerOrderId}"/>
+                                        <c:url var="showCustomerOrderUrl" value="/admin-customer-order/show">
                                         </c:url>
-                                        <a href="${editCustomerUrl}" data-id="85"
+                                        <a href="${showCustomerOrderUrl}" data-id="85" title="Chi tiết đơn hàng"
                                            class="btn btn-icon btn-sm btn-primary deleteDialog tip">
-                                            <i class="fa fa-pencil-square-o"></i>
+                                            <i class="fa fa-eye"></i>
                                         </a>
 
-                                        <a href="#" data-id="85" onclick="confirmDelete()"
+                                        <a href="#" data-id="85" onclick="confirmDelete()" title="Xóa đơn hàng"
                                            class="btn btn-icon btn-sm btn-danger deleteDialog tip">
                                             <i class="fa fa-trash"></i>
+                                        </a>
+
+                                        <a href="${editCustomerUrl}" data-id="85" title="Duyệt đơn hàng"
+                                           class="btn btn-icon btn-sm btn-primary deleteDialog tip">
+                                            <i class="fa fa-globe"></i>
                                         </a>
                                     </td>
                                 </tr>

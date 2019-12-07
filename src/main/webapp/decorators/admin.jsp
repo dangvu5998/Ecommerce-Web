@@ -32,6 +32,7 @@
           media="all"/>
     <link href="<c:url value='/template/admin/sweet/sweetalert2.min.css' />" rel="stylesheet" type="text/css"
           media="all"/>
+    <link href="<c:url value='/template/admin/css/style.css' />" rel="stylesheet" type="text/css" media="all"/>
     <script src="<c:url value='/template/admin/js/jquery.min.js' />"></script>
     <script src="<c:url value='/template/admin/js/bootstrap.min.js' />"></script>
     <script src="<c:url value='/template/admin/sweet/sweetalert2.min.js' />"></script>
