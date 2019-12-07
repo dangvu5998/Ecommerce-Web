@@ -1,5 +1,6 @@
 package com.service.impl;
 
+import com.constant.SystemConstant;
 import com.converter.ProductConverter;
 import com.dto.ProductDTO;
 import com.entity.Product;
@@ -8,11 +9,14 @@ import com.service.AdminProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.*;
 
 @Service
 public class AdminProductServiceImpl implements AdminProductService {
@@ -88,5 +92,33 @@ public class AdminProductServiceImpl implements AdminProductService {
     @Transactional
     public void delete(Integer id) {
         productRepository.delete(id);
+    }
+
+    @Override
+    public void deleteThumbnailProduct(String thumbnail) {
+        try {
+            File file = new File(SystemConstant.UPLOADED_FOLDER + thumbnail);
+            file.delete();
+        } catch (Exception e) {
+            System.out.println("Failed to Delete image !!");
+        }
+    }
+
+    @Override
+    public String uploadFile(MultipartFile file) {
+        StringJoiner sj = new StringJoiner(" , ");
+        if (file.isEmpty()) {
+            return "";
+        }
+        try {
+            byte[] bytes = file.getBytes();
+            Path path = Paths.get(SystemConstant.UPLOADED_FOLDER + file.getOriginalFilename());
+            Files.write(path, bytes);
+            sj.add(file.getOriginalFilename());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String uploadedFileName = sj.toString();
+        return uploadedFileName;
     }
 }

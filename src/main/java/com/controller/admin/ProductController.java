@@ -11,11 +11,17 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
+import java.util.StringJoiner;
 
 @Controller(value = "adminProductController")
 public class ProductController {
@@ -34,6 +40,10 @@ public class ProductController {
 
     @RequestMapping(value = "/admin-product/add", method = RequestMethod.POST)
     public ModelAndView createCustomer(@Valid @ModelAttribute ProductDTO productDTO, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
+        for (MultipartFile file : productDTO.getProductImage()) {
+            productDTO.setThumbnail(adminProductService.uploadFile(file));
+        }
+
         adminProductService.save(productDTO);
         redirectAttributes.addAttribute("category", productDTO.getProductCategory());
         ModelAndView modelAndView = new ModelAndView("redirect:/admin-product/list");
@@ -55,6 +65,9 @@ public class ProductController {
 
     @RequestMapping(value = "/admin-product/edit", method = RequestMethod.POST)
     public ModelAndView updateCustomer(@Valid @ModelAttribute ProductDTO productDTO, BindingResult result, Model model, RedirectAttributes redirectAttributes) {
+        for (MultipartFile file : productDTO.getProductImage()) {
+            productDTO.setThumbnail(adminProductService.uploadFile(file));
+        }
         adminProductService.save(productDTO);
         redirectAttributes.addAttribute("category", productDTO.getProductCategory());
         ModelAndView modelAndView = new ModelAndView("redirect:/admin-product/list");
@@ -63,7 +76,9 @@ public class ProductController {
 
     @RequestMapping(value = "/admin-product/delete", method = RequestMethod.GET)
     public ModelAndView adminDeleteCustomerPage(@RequestParam(value = "productId", required = false) Integer id, RedirectAttributes redirectAttributes) {
-        redirectAttributes.addAttribute("category", adminProductService.findOneById(id).getProductCategory());
+        ProductDTO productDTO = adminProductService.findOneById(id);
+        redirectAttributes.addAttribute("category", productDTO.getProductCategory());
+        adminProductService.deleteThumbnailProduct(productDTO.getThumbnail());
         adminProductService.delete(id);
         ModelAndView modelAndView = new ModelAndView("redirect:/admin-product/list");
         return modelAndView;

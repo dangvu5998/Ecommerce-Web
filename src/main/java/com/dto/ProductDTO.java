@@ -1,6 +1,7 @@
 package com.dto;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -18,7 +19,17 @@ public class ProductDTO {
     private String productName;
     private double productPrice;
     private double productSalePrice;
+    private String thumbnail;
     private int quantity;
+    private MultipartFile[] productImage;
+
+    public MultipartFile[] getProductImage() {
+        return productImage;
+    }
+
+    public void setProductImage(MultipartFile[] productImage) {
+        this.productImage = productImage;
+    }
 
     public Integer getProductId() {
         return productId;
@@ -90,5 +101,13 @@ public class ProductDTO {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public String getThumbnail() {
+        return thumbnail;
+    }
+
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
     }
 }

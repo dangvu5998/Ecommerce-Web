@@ -30,6 +30,14 @@
     <servlet-mapping>
         <servlet-name>dispatcherServlet</servlet-name>
         <url-pattern>/</url-pattern>
+        <url-pattern>*.png</url-pattern>
+        <url-pattern>*.gif</url-pattern>
+        <url-pattern>*.jpg</url-pattern>
+        <url-pattern>*.jpeg</url-pattern>
+        <url-pattern>*.PNG</url-pattern>
+        <url-pattern>*.GIF</url-pattern>
+        <url-pattern>*.JPG</url-pattern>
+        <url-pattern>*.JPEG</url-pattern>
     </servlet-mapping>
 
     <filter>

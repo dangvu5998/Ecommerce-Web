@@ -18,6 +18,7 @@ public class ProductConverter implements BaseConverter<Product, ProductDTO> {
         productDTO.setProductPrice(entity.getProductPrice());
         productDTO.setProductSalePrice(entity.getProductSalePrice());
         productDTO.setQuantity(entity.getQuantity());
+        productDTO.setThumbnail(entity.getThumbnail());
         return productDTO;
     }
 
@@ -32,6 +33,7 @@ public class ProductConverter implements BaseConverter<Product, ProductDTO> {
         product.setProductPrice(dto.getProductPrice());
         product.setProductSalePrice(dto.getProductSalePrice());
         product.setquantity(dto.getQuantity());
+        product.setThumbnail(dto.getThumbnail());
         return product;
     }
 
@@ -45,6 +47,7 @@ public class ProductConverter implements BaseConverter<Product, ProductDTO> {
         entity.setProductPrice(dto.getProductPrice());
         entity.setProductSalePrice(dto.getProductSalePrice());
         entity.setquantity(dto.getQuantity());
+        entity.setThumbnail(dto.getThumbnail());
         return entity;
     }
 }

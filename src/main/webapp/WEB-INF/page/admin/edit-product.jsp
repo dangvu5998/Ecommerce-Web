@@ -42,7 +42,7 @@
                             <c:url var="adminProduct" value="/admin-product/edit"/>
                         </c:if>
                         <form:form role="form" modelAttribute="model_product" method="post" id="formSubmit"
-                                   action="${adminProduct}">
+                                   action="${adminProduct}" enctype="multipart/form-data">
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>Chọn thể loại</label>
@@ -91,6 +91,10 @@
                                     <label>Số lượng</label>
                                     <form:input cssClass="form-control" placeholder="Số lượng"
                                                 path="quantity"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>Chọn hình ảnh</label>
+                                    <form:input type="file" path="productImage"/><br/>
                                 </div>
                                 <button type="submit" class="align-self-end btn btn-success"
                                         id="btnCreateAndUpdateCustomer">

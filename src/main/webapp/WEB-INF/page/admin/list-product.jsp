@@ -62,7 +62,7 @@
                             <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Thể loại</th>
+                                <th>Hình ảnh</th>
                                 <th>Tên sản phẩm</th>
                                 <th>Mô tả ngắn</th>
                                 <th>Giá bán</th>
@@ -75,7 +75,8 @@
                             <c:forEach var="item" items="${model_product}">
                                 <tr class="odd gradeX">
                                     <td>${item.productId}</td>
-                                    <td>${item.productCategory}</td>
+                                    <c:set var="thumbnail" value="${item.thumbnail}"/>
+                                    <td><img width="100px" height="100px" src="<c:url value="/images/image/${thumbnail}" />" alt=""/></td>
                                     <td>${item.productName}</td>
                                     <td class="center">${item.productOverview}</td>
                                     <td class="center">${item.productPrice}</td>

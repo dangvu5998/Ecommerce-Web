@@ -37,6 +37,9 @@ public class Product implements Serializable {
     @Column(name = "manufacturer")
     private String productManufacturer;
 
+    @Column(name = "thumbnail")
+    private String thumbnail;
+
     @NotEmpty(message = "Product Name is mandatory")
     @Column(name = "name")
     private String productName;
@@ -137,6 +140,18 @@ public class Product implements Serializable {
 
     public void setProductSalePrice(double productSalePrice) {
         this.productSalePrice = productSalePrice;
+    }
+
+    public String getThumbnail() {
+        return thumbnail;
+    }
+
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     // Constructors
