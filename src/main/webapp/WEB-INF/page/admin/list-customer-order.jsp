@@ -68,7 +68,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach var="item" items="${model_customer_order}">
+                            <c:forEach var="item" items="${model_list_customer_order}">
                                 <tr class="odd gradeX">
                                     <td>${item.customerOrderId}</td>
                                     <td>${item.code}</td>
@@ -87,6 +87,7 @@
                                     </c:if>
                                     <td>
                                         <c:url var="showCustomerOrderUrl" value="/admin-customer-order/show">
+                                            <c:param name="customerOrderId" value="${item.customerOrderId}"/>
                                         </c:url>
                                         <a href="${showCustomerOrderUrl}" data-id="85" title="Chi tiết đơn hàng"
                                            class="btn btn-icon btn-sm btn-primary deleteDialog tip">

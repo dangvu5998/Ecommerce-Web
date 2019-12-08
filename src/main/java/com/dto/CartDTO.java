@@ -3,19 +3,28 @@ package com.dto;
 import java.util.List;
 
 public class CartDTO {
-    private int cartId;
+    private Integer cartId;
     private double totalPrice;
     private CustomerDTO customerDTO;
+    private List<CartItemDTO> cartItemDTOList;
+
+    public List<CartItemDTO> getCartItemDTOList() {
+        return cartItemDTOList;
+    }
+
+    public void setCartItemDTOList(List<CartItemDTO> cartItemDTOList) {
+        this.cartItemDTOList = cartItemDTOList;
+    }
 
     public CustomerDTO getCustomerDTO() { return customerDTO; }
 
     public void setCustomerDTO(CustomerDTO customerDTO) { this.customerDTO = customerDTO; }
 
-    public int getCartId() {
+    public Integer getCartId() {
         return cartId;
     }
 
-    public void setCartId(int cartId) {
+    public void setCartId(Integer cartId) {
         this.cartId = cartId;
     }
 

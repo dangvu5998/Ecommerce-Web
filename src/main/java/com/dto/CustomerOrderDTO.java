@@ -1,7 +1,7 @@
 package com.dto;
 
 public class CustomerOrderDTO {
-    private int customerOrderId;
+    private Integer customerOrderId;
     private String address;
     private String note;
     private CartDTO cartDTO;
@@ -28,9 +28,9 @@ public class CustomerOrderDTO {
 
     public void setCartDTO(CartDTO cartDTO) { this.cartDTO = cartDTO; }
 
-    public int getCustomerOrderId() { return customerOrderId; }
+    public Integer getCustomerOrderId() { return customerOrderId; }
 
-    public void setCustomerOrderId(int customerOrderId) { this.customerOrderId = customerOrderId; }
+    public void setCustomerOrderId(Integer customerOrderId) { this.customerOrderId = customerOrderId; }
 
     public String getAddress() { return address; }
 

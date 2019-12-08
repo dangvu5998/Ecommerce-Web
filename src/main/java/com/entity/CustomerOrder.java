@@ -17,7 +17,7 @@ public class CustomerOrder implements Serializable {
 	private String address;
 	private String note;
 	private Integer status;
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "cardId")
 	private Cart cart;
 

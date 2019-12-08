@@ -1,15 +1,24 @@
 package com.dto;
 
 public class CartItemDTO {
-    private int cartItemId;
+    private Integer cartItemId;
     private int quality;
     private double price;
+    private ProductDTO productDTO;
 
-    public int getCartItemId() {
+    public ProductDTO getProductDTO() {
+        return productDTO;
+    }
+
+    public void setProductDTO(ProductDTO productDTO) {
+        this.productDTO = productDTO;
+    }
+
+    public Integer getCartItemId() {
         return cartItemId;
     }
 
-    public void setCartItemId(int cartItemId) {
+    public void setCartItemId(Integer cartItemId) {
         this.cartItemId = cartItemId;
     }
 

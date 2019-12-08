@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -24,7 +25,7 @@ public class Cart implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer cartId;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "customerId")
     @JsonIgnore
     private Customer customer;
@@ -32,9 +33,16 @@ public class Cart implements Serializable {
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<CartItem> cartItem;
 
-    @OneToOne(mappedBy = "cart")
+    @OneToOne(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private CustomerOrder customerOrder;
 
+    public CustomerOrder getCustomerOrder() {
+        return customerOrder;
+    }
+
+    public void setCustomerOrder(CustomerOrder customerOrder) {
+        this.customerOrder = customerOrder;
+    }
 
     private double totalPrice;
 

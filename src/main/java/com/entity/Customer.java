@@ -22,11 +22,11 @@ public class Customer implements Serializable {
 	@Column(name = "address", columnDefinition = "TEXT")
 	private String address;
 
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "userId")
 	private User user;
 
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "cartId")
 	@JsonIgnore
 	private Cart cart;

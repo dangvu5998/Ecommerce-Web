@@ -25,8 +25,13 @@ public class User implements Serializable {
 			inverseJoinColumns = @JoinColumn(name = "authorities_id"))
 	List<Authorities> authorities;
 
-	@OneToOne(mappedBy = "user")
+	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL,
+			fetch = FetchType.LAZY)
 	private Customer customer;
+
+	public Integer getUserId() {
+		return userId;
+	}
 
 	public Customer getCustomer() {
 		return customer;
@@ -34,14 +39,6 @@ public class User implements Serializable {
 
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
-	}
-
-	public int getUserId() {
-		return userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
 	}
 
 	public String getPassword() {

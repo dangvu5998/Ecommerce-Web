@@ -39,7 +39,7 @@ public class CustomerOrderConverter implements BaseConverter<CustomerOrder, Cust
         entity.setAddress(dto.getAddress());
         entity.setNote(dto.getNote());
         entity.setStatus(dto.getStatus());
-        entity.setCart(cartConverter.toEntity(dto.getCartDTO()));
+        entity.setCart(cartConverter.toEntity(entity.getCart(), dto.getCartDTO()));
         entity.setCode(dto.getCode());
         return entity;
     }

@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 public class CustomerConverter implements BaseConverter<Customer, CustomerDTO> {
 
     @Autowired
-    private BaseConverter<User, UserDTO> userConverter;
+    private UserConverter userConverter;
 
     @Override
     public CustomerDTO toDTO(Customer entity) {
@@ -41,7 +41,7 @@ public class CustomerConverter implements BaseConverter<Customer, CustomerDTO> {
 
     @Override
     public Customer toEntity(Customer entity, CustomerDTO dto) {
-        entity.setUser(userConverter.toEntity(dto.getUserDTO()));
+        entity.setUser(userConverter.toEntity(entity.getUser(), dto.getUserDTO()));
         entity.setAddress(dto.getAddress());
         entity.setFirstName(dto.getFirstName());
         entity.setLastName(dto.getLastName());

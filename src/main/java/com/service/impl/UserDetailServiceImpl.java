@@ -2,6 +2,7 @@ package com.service.impl;
 
 import com.constant.SystemConstant;
 import com.converter.BaseConverter;
+import com.converter.CustomerConverter;
 import com.dto.CustomerDTO;
 import com.dto.UserDTO;
 import com.entity.Authorities;
@@ -24,7 +25,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
     private UserRepository userRepository;
 
     @Autowired
-    private BaseConverter<Customer, CustomerDTO> customerConverter;
+    private CustomerConverter customerConverter;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
