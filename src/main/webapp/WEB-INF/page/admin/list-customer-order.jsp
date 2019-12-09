@@ -2,6 +2,8 @@
 <%@ include file="/common/taglib.jsp" %>
 <c:url var="listCustomerUrl" value="/admin-customer/list"/>
 <c:url var="addCustomerUrl" value="/admin-customer/edit"/>
+<c:url var="confirmOrder" value="/admin-customer-order/confirm">
+</c:url>
 <!DOCTYPE html>
 <html>
 
@@ -98,11 +100,19 @@
                                            class="btn btn-icon btn-sm btn-danger deleteDialog tip">
                                             <i class="fa fa-trash"></i>
                                         </a>
-
-                                        <a href="${editCustomerUrl}" data-id="85" title="Duyệt đơn hàng"
-                                           class="btn btn-icon btn-sm btn-primary deleteDialog tip">
-                                            <i class="fa fa-globe"></i>
-                                        </a>
+                                        <c:if test="${item.status==0}">
+                                            <a data-id="85" title="Duyệt đơn hàng"
+                                               class="btn btn-icon btn-sm btn-primary deleteDialog tip">
+                                                <i class="fa fa-globe"
+                                                   onclick="confirmOrder(${item.customerOrderId})"></i>
+                                            </a>
+                                        </c:if>
+                                        <c:if test="${item.status==1}">
+                                            <a onclick="orderConfirmed()" data-id="85" title="Duyệt đơn hàng"
+                                               class="btn btn-icon btn-sm btn-primary deleteDialog tip">
+                                                <i class="fa fa-globe"></i>
+                                            </a>
+                                        </c:if>
                                     </td>
                                 </tr>
                             </c:forEach>
@@ -132,15 +142,48 @@
             confirmButtonText: "Xác nhận",
             cancelButtonText: "Hủy bỏ",
             showLoaderOnConfirm: true,
-        }).then(function(isConfirm) {
+        }).then(function (isConfirm) {
             if (isConfirm.value) {
                 <%--window.location.href = "${logoutUrl}";--%>
                 swal("Deleted!", "Your imaginary file has been deleted.", "success");
-            }else{
+            } else {
                 swal("Cancelled", "Your imaginary file is safe :)", "error");
             }
         });
     }
+
+    function orderConfirmed() {
+        swal("Thông báo!", "Đơn hàng đã được duyệt!", "info")
+    }
+
+    function confirmOrder(id) {
+        swal({
+            title: "Xác nhận đơn hàng",
+            text: "Bạn có chắc chắn muốn xác nhận đơn hàng?",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-success",
+            cancelButtonClass: "btn-danger",
+            confirmButtonText: "Đồng ý",
+            cancelButtonText: "Hủy bỏ",
+            showLoaderOnConfirm: true,
+        }).then(function (isConfirm) {
+            if (isConfirm.value) {
+                swal({
+                    title: "Xác nhận đơn hàng",
+                    text: "Đơn hàng đã được duyệt",
+                    type: "success"
+                }).then(function (isConfirm) {
+                    if (isConfirm.value) {
+                        window.location.href = "${confirmOrder}?customerOrderId=" + id;
+                    }
+                })
+            } else {
+            }
+        });
+    }
+
+
 </script>
 </body>
 

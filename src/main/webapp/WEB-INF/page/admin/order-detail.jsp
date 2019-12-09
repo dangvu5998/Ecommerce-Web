@@ -139,9 +139,18 @@
                                     </h4>
                                 </div>
                                 <div class="col-xs-3">
-                                    <button type="button" class="btn btn-success btn-block" onclick="confirmOrder()">
-                                        Duyệt đơn hàng
-                                    </button>
+                                    <c:if test="${model_customer_order.status==0}">
+                                        <button type="button" class="btn btn-success btn-block"
+                                                onclick="confirmOrder()">
+                                            Duyệt đơn hàng
+                                        </button>
+                                    </c:if>
+                                    <c:if test="${model_customer_order.status==1}">
+                                        <button type="button" class="btn btn-success btn-block" disabled>
+                                            Đơn hàng đã được duyệt
+                                        </button>
+                                    </c:if>
+
                                 </div>
                             </div>
                         </div>
