@@ -3,14 +3,15 @@ package com.controller;
 import java.util.List;
 import javax.validation.Valid;
 import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -18,12 +19,28 @@ import com.model.Queries;
 import com.service.QueriesService;
 import com.model.Product;
 import com.service.ProductService;
+import com.service.CustomerService;
+import com.service.CartService;
+import com.model.Customer;
+import com.model.Cart;
+import com.model.CustomerOrder;
+import com.service.CustomerOrderService;
 
 @Controller
 public class HomeController {
 
 	@Autowired
 	private ProductService productService;
+
+	@Autowired
+	private CustomerOrderService customerOrderService;
+
+	@Autowired
+	private CustomerService customerService;
+
+	@Autowired
+	private CartService cartService;
+
 
 	// Getters and Setters
 
@@ -80,8 +97,20 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/checkout")
-	public String getCheckout() {
-		return "checkout";
+	public ModelAndView getCheckout() {
+		CustomerOrder customerOrder = new CustomerOrder();
+		return new ModelAndView("checkout", "customerOrder", customerOrder);
 	}
 
+	@RequestMapping(value = "/checkout", method = RequestMethod.POST)
+	public String createOrder(HttpServletRequest request, @Valid @ModelAttribute(value = "customerOrder") CustomerOrder customerOrder, BindingResult result) {
+		Principal principal = request.getUserPrincipal();
+		String emailId = principal.getName();
+		Customer customer = customerService.getCustomerByEmailId(emailId);
+		Cart cart = customer.getCart();
+		customerOrder.setCustomer(customer);
+		customerOrder.setCart(cart);
+		customerOrderService.addCustomerOrder(customerOrder);
+		return "redirect:/";
+	}
 }

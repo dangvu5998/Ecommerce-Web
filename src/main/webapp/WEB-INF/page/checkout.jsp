@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,6 +31,7 @@
 		<!-- /BREADCRUMB -->
 
 		<!-- SECTION -->
+		<form:form method="post" action="/checkout" commandName="customerOrder" enctype="multipart/form-data">
 		<div class="section">
 			<!-- container -->
 			<div class="container">
@@ -44,7 +46,7 @@
 							</div>
 							<div class="form-group">
 								<label for="addressBill">Địa chỉ:</label>
-								<input id="addressBill" class="input" type="text" name="address" placeholder="Địa chỉ">
+								<form:input id="addressBill" path="address" class="input" type="text" name="address" placeholder="Địa chỉ" />
 							</div>
 						</div>
 						<!-- /Billing Details -->
@@ -52,7 +54,7 @@
 						<!-- Order notes -->
 						<div class="order-notes">
 							<label for="noteBill">Chú thích:</label>
-							<textarea id="noteBill" class="input" placeholder="Chú thích"></textarea>
+							<form:textarea id="noteBill" path="note" class="input" placeholder="Chú thích"></form:textarea>
 						</div>
 						<!-- /Order notes -->
 					</div>
@@ -87,7 +89,7 @@
 								<div><strong class="order-total">${cart.totalPrice}</strong></div>
 							</div>
 						</div>
-						<a href="#" class="primary-btn order-submit">đặt hàng</a>
+						<button type="submit" class="primary-btn order-submit">đặt hàng</button>
 					</div>
 					<!-- /Order Details -->
 				</div>
@@ -95,6 +97,7 @@
 			</div>
 			<!-- /container -->
 		</div>
+		</form:form>
 		<!-- /SECTION -->
 
 	<%@ include file="footer.jsp"%> 

@@ -10,6 +10,7 @@ import com.model.Customer;
 import com.model.CustomerOrder;
 import com.service.CartService;
 import com.service.CustomerOrderService;
+import com.service.CustomerService;
 
 @Controller
 public class OrderController {
@@ -38,4 +39,5 @@ public class OrderController {
 
 		return "redirect:/checkout?cartId=" + Integer.toString(cartId);
 	}
+
 }

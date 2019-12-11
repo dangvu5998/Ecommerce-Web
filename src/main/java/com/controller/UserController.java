@@ -44,8 +44,6 @@ public class UserController {
 			BindingResult result) {
 		if (result.hasErrors())
 			return "register";
-		System.out.println(customer.getFirstName());
-		System.out.println(customer.getUser().getEmailId());
 		customerService.addCustomer(customer);
 		model.addAttribute("registrationSuccess", "Đăng ký tài khoản thành công");
 		return "login";
